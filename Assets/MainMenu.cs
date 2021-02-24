@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    //Gjort av Melker J
     public void PlayGame()
     {
         //När du trycker på play knappen så "loadar" du +1 scene. I build settings kommer Title screen först och sedan själva spelet.
