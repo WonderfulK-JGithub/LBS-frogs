@@ -5,7 +5,7 @@ using UnityEngine;
 public class PigBehavior : MonoBehaviour
 { 
     [Header("Movement")]
-    [SerializeField] private float HorizontalSpeed = 0;
+    [SerializeField] private float horizontalSpeed = 0;
 
     float direction = 1;
     Vector2 moveForce;
@@ -28,7 +28,7 @@ public class PigBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-        moveForce = new Vector2(HorizontalSpeed * direction, rb.velocity.y);
+        moveForce = new Vector2(horizontalSpeed * direction, rb.velocity.y);
 
         //ger rb velocity
         rb.velocity = moveForce;

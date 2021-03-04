@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //Referense till rigidbody - KJ
     Rigidbody2D rb;
-
+    
     [Header("Force")]
     [SerializeField,Range(1,10)] float verticalSpd = 1;
     [SerializeField,Range(0.1f,10)] float jumpForce = 0.1f;
@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        
+
         //hämtar referensen - KJ
         rb = GetComponent<Rigidbody2D>();
 
