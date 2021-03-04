@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1206859201201224610}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1206859201959334851}
   m_RootOrder: 0
@@ -90,6 +90,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1206859201959334851}
+  - component: {fileID: 2954625137764511468}
+  - component: {fileID: -4507327212354126321}
   m_Layer: 0
   m_Name: WowCoolWeapon
   m_TagString: Untagged
@@ -112,3 +114,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2954625137764511468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206859201959334850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9fe908bd09bc94ca991c128bb2e138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  playerTr: {fileID: 0}
+--- !u!114 &-4507327212354126321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206859201959334850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9d60a3560682dd469acd9722d00923e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeOfSwing: 0
+  canAttack: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  topBoxPosOffset: {x: 0.5, y: 1.5}
+  topBoxSize: {x: 3, y: 1}
+  frontBoxPosOffset: {x: 1.5, y: 0}
+  frontBoxSize: {x: 1, y: 2}

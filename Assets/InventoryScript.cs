@@ -145,24 +145,34 @@ public class InventoryScript : MonoBehaviour
         if(weapons.Count-1 >= slotNum && slotNum >= 0)
         {
             activeWeapon = weapons[slotNum];
+            activeWeapon.GetComponent<WeaponScript>().SetActive(true);
+            for (int i = 0; i < weapons.Count; i++)
+            {
+                if(weapons[i] != activeWeapon)
+                {
+                    weapons[i].GetComponent<WeaponScript>().SetActive(false);
+                }
+            }
         }
     }
 
     public void AddWeapon(GameObject weapon)
     {
+        GameObject newWeapon = Instantiate(weapon, Vector3.zero, Quaternion.identity);
+        newWeapon.GetComponent<WeaponScript>().playerTr = GameObject.Find("Player").transform;
         //If-statement kollar om det finns plats för ett nytt vapen i inventoryt/hotbaren - Max
         if(weapons.Count < inventorySlotsAmount)
         {
             //Finns det plats så skapas ett nytt vapen på första möjliga inventorySlot - Max
-            weapons.Add(weapon);
-            Instantiate(weapon.transform.GetChild(0), inventorySlots[weapons.Count - 1].transform);
+            weapons.Add(newWeapon);
+            Instantiate(newWeapon.transform.GetChild(0), inventorySlots[weapons.Count - 1].transform);
         }
         else
         {
             //Annars så byts det equippade vapnet ut mot det man plockar upp - Max
-            weapons[activeSlotNum] = weapon;
+            weapons[activeSlotNum] = newWeapon;
             Destroy(inventorySlots[activeSlotNum].transform.GetChild(0).gameObject);
-            Instantiate(weapon.transform.GetChild(0), inventorySlots[activeSlotNum].transform);
+            Instantiate(newWeapon.transform.GetChild(0), inventorySlots[activeSlotNum].transform);
         }
     }
 
