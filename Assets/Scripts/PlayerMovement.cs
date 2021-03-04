@@ -11,11 +11,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
 
     [Header("Force")]
-    [SerializeField,Range(1,10)] float verticalSpd;
-    [SerializeField,Range(0.1f,10)] public float jumpForce;
+    [SerializeField,Range(1,10)] float verticalSpd = 1;
+    [SerializeField,Range(0.1f,10)] float jumpForce = 0.1f;
+    [SerializeField] float extraGravity = 0;
+    float ogGravityScale = 0;
 
     [Header("Jump buffer")]
-    [SerializeField,Range(0,1)] float extraTime;
+    [SerializeField,Range(0,1)] float extraTime = 0;
     
 
     //håller koll på hur länge man tryckt på hopp knappen
@@ -29,21 +31,31 @@ public class PlayerMovement : MonoBehaviour
     //är till för att veta om man håller ner hoppknappen för att hoppa högre - KJ
     bool holdJumpButton = false;
 
+    //referens till playerns collider
+    BoxCollider2D boxCol;
+
+    int maskIndex;
+
     void Start()
     {
         //hämtar referensen - KJ
         rb = GetComponent<Rigidbody2D>();
 
         holdTime = extraTime;
+
+        ogGravityScale = rb.gravityScale;
+
+        boxCol = GetComponent<BoxCollider2D>();
+        maskIndex = LayerMask.GetMask("Solid");
     }
 
     
     void Update()
     {
-        print(hasJumped);
+        
 
         //skaffar input från höger och vänster knappar - KJ
-        float vert = Input.GetAxis("Horizontal");
+        float vert = Input.GetAxisRaw("Horizontal");
 
         if(holdJumpButton)
         {
@@ -87,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
             holdJumpButton = true;
         }
 
-        print(moveForce.y);
+        
 
         moveForce = new Vector2(vert * verticalSpd,rb.velocity.y); //Ser till att den eventuellt rör sig vänster eller höger, men alltid behåller fall - KJ
     }
@@ -96,14 +108,31 @@ public class PlayerMovement : MonoBehaviour
     {
         //sätter rigidbodyns velocity till det den ska vara - KJ
         rb.velocity = moveForce;
-    }
 
-    //Ser till att playern kan hoppa igen när han landar på ett objekt med taggen "ground" - KJ
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("ground"))
+
+        
+        if(rb.velocity.y <= 0)
         {
-            hasJumped = false;
+            //ökar gravitationen på objektet när den faller, så att man faller mycket snabbare och inte känner att man är på månen - KJ
+            rb.gravityScale = ogGravityScale * extraGravity;
+
+            //kollar om spelaren kan hoppa
+            //Detta görs genom OverlapBox. Den fungerar genom att jag sätter ut positionen och storleken på en box och sedan kollar den om det finns ett objekt i den boxen
+            //Bara objekt som ligger på layern "Solid" kommer kunna hittas. Därför är det viktigt att sätta layern på marken till det. (Layer ligger höger om där tag är på ett objekt)
+            // - KJ
+            Collider2D collider = Physics2D.OverlapBox(transform.position, new Vector2(boxCol.bounds.extents.x * 2f -0.2f, boxCol.bounds.extents.y * 2), 0f, maskIndex);
+
+            //Om det fanns en collider i boxen betyder det att spelaren kan hoppa igen - KJ
+            if (collider != null)
+            {
+                hasJumped = false;
+            }
         }
+        else
+        {
+            rb.gravityScale = ogGravityScale;
+        }
+
+       
     }
 }
