@@ -36,6 +36,12 @@ public class PlayerMovement : MonoBehaviour
 
     int maskIndex;
 
+    [Header("Facing")]
+    //En bool för att kolla om spelaren kollar åt höger eller vänster - Max
+    public bool isFlipped = false;
+    //för så att spelaren inte kan byta håll - Max
+    public bool canFlip = true;
+
     void Start()
     {
         
@@ -104,6 +110,20 @@ public class PlayerMovement : MonoBehaviour
         
 
         moveForce = new Vector2(vert * verticalSpd,rb.velocity.y); //Ser till att den eventuellt rör sig vänster eller höger, men alltid behåller fall - KJ
+
+
+        //Flippar vilket håll som spelaren kollar åt - Max
+        if (canFlip)
+        {
+            if (vert < 0 && !isFlipped)
+            {
+                isFlipped = true;
+            }
+            else if (vert > 0 && isFlipped)
+            {
+                isFlipped = false;
+            }
+        }
     }
 
     void FixedUpdate()

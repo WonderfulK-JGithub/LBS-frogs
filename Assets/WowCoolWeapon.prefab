@@ -140,12 +140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9d60a3560682dd469acd9722d00923e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeOfSwing: 0
-  canAttack: 1
   layerMask:
     serializedVersion: 2
     m_Bits: 512
-  topBoxPosOffset: {x: 0.5, y: 1.5}
-  topBoxSize: {x: 3, y: 1}
-  frontBoxPosOffset: {x: 1.5, y: 0}
-  frontBoxSize: {x: 1, y: 2}
+  canAttack: 1
+  HitBoxes:
+  - position: {x: 0.5, y: 0}
+    size: {x: 1, y: 2}
+    time: 0.1
