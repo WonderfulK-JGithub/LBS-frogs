@@ -32,31 +32,35 @@ public class EnemyBehavior : MonoBehaviour
 
     void Update()
     {
-        //kollar om man är temporärt odödlig - KJ
-        if(!allowHit)
+        if(!PauseMenu.GameIsPaused)
         {
-            //tar bort från frameCount. om frameCount är 0 eller mindre slutar man vara temporärt odödlig - KJ
-            frameCount -= 60 * Time.deltaTime;
-            if(frameCount <= 0)
+            //kollar om Fienden är temporärt odödlig - KJ
+            if (!allowHit)
             {
-                allowHit = true;
-                rend.color = new Color(rend.color.r, rend.color.g, rend.color.b, 1);
-            }
-            else
-            {
-                
-                //Denna uträkning ser till att fienden blinkar endast var enda "flickerRate" frame. Om flickerRate == 2 är uträkningen true varannan frame - KJ
-                if(Mathf.Floor(frameCount) % flickerRate == 0)
+                //tar bort från frameCount. om frameCount är 0 eller mindre slutar man vara temporärt odödlig - KJ
+                frameCount -= 60 * Time.deltaTime;
+                if (frameCount <= 0)
                 {
-                    rend.color = new Color(rend.color.r,rend.color.g,rend.color.b,0);
+                    allowHit = true;
+                    rend.color = new Color(rend.color.r, rend.color.g, rend.color.b, 1);
                 }
                 else
                 {
-                    rend.color = new Color(rend.color.r, rend.color.g, rend.color.b, 1);
+
+                    //Denna uträkning ser till att fienden blinkar endast var enda "flickerRate" frame. Om flickerRate == 2 är uträkningen true varannan frame - KJ
+                    if (Mathf.Floor(frameCount) % flickerRate == 0)
+                    {
+                        rend.color = new Color(rend.color.r, rend.color.g, rend.color.b, 0);
+                    }
+                    else
+                    {
+                        rend.color = new Color(rend.color.r, rend.color.g, rend.color.b, 1);
+                    }
                 }
             }
+
         }
-        
+
     }
 
     //kallas av vapnet när fienden har 0 eller mindre hp - KJ
