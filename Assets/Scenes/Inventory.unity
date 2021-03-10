@@ -268,7 +268,7 @@ MonoBehaviour:
   position: {x: 0, y: -150}
   inventorySlotPrefab: {fileID: 2188895460577283657, guid: d02a27c3b6d1c554cb30bcd810756b58,
     type: 3}
-  defaultWeapon: {fileID: 1206859201959334850, guid: 47efa7fb03135c646bd300ee257286ea,
+  defaultWeapon: {fileID: 1206859201959334850, guid: 94f9dc702d12cdd47b3dbf9ba9102274,
     type: 3}
   addWeapon: 0
 --- !u!4 &699701681
@@ -515,7 +515,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 792748724}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: c167292f9e8031942bcd591766f8c664, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -698,7 +698,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311932863}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.485, y: 0.707, z: 0}
+  m_LocalPosition: {x: 14.51, y: 0.63, z: 0}
   m_LocalScale: {x: 69.34357, y: 24.526506, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

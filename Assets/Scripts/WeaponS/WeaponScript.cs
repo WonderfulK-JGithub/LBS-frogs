@@ -66,6 +66,13 @@ public class WeaponScript : MonoBehaviour
     public void SetActive(bool b)
     {
         //För att kunna stänga av vapnets funktioner ifall det inte är det som används - Max
-        GetComponent<MeleeWeaponScript>().enabled = b;
+        if(GetComponent<MeleeWeaponScript>() != null)
+        {
+            GetComponent<MeleeWeaponScript>().enabled = b;
+        }
+        else if(GetComponent<RangedWeaponScript>() != null)
+        {
+            GetComponent<RangedWeaponScript>().enabled = b;
+        }
     }
 }

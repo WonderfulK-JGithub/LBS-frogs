@@ -12,6 +12,8 @@ public class MeleeWeaponScript : MonoBehaviour
     [Header("Attack")]
     public List<HitBox> HitBoxes = new List<HitBox>();
 
+    public float timeTilNextAttack;
+
     //Local Variables:
 
     Vector2 transformVector2;
@@ -71,6 +73,9 @@ public class MeleeWeaponScript : MonoBehaviour
         }
 
         //Sätter på så man kan attackera och vända sig igen - Max
+
+        yield return new WaitForSeconds(timeTilNextAttack);
+
         canAttack = true;
         player.canFlip = true;
     }

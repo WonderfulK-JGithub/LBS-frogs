@@ -98,7 +98,7 @@ public class InventoryScript : MonoBehaviour
         }
 
         //Kollar om throw-knappen trycks ner, då ska vapnet man håller i kastas bort - Max
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetButtonDown("Fire2"))
         {
             ThrowWeapon();
         }
