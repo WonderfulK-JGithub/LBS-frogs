@@ -9,7 +9,7 @@ public class BeeHavior : MonoBehaviour
     [SerializeField] private float verticalSpeed = 0;
     [SerializeField,Range(0.1f,2f)] private float verticalRange = 0; 
     private float verticalTime = 0;
-    private bool flyUp = false;
+    
 
     private float startHeight = 0;
 
@@ -36,24 +36,38 @@ public class BeeHavior : MonoBehaviour
     
     void Update()
     {
-        float moveX = horizontalSpeed * Time.deltaTime * direction;
+        if(!PauseMenu.GameIsPaused)
+        {
+            //räknar ut hur mycket den ska flyttas i x - KJ
+            float moveX = horizontalSpeed * Time.deltaTime * direction;
 
-        float moveY = Mathf.Sin(verticalTime) * verticalRange;
+            //räknar ut hur vart den ska vara i y
+            //Detta är lite annorlunda men Sin gör basically att det blir vågigt. verticalRange bestämmer hur stora vågorna ska vara.
+            //Om man skriver detta i t.ex geogebra, vilket då blir: y = Sin(x) * valfri siffra, blir det en bra illustration på hur biet flyger upp och ner - KJ
+            float moveY = Mathf.Sin(verticalTime) * verticalRange;
 
-        newPosition = new Vector2(moveX + transform.position.x,moveY + startHeight);
+            //bestämmer rigidbodyns nya position
+            newPosition = new Vector2(moveX + transform.position.x, moveY + startHeight);
 
-        verticalTime += verticalSpeed * Time.deltaTime;
+            verticalTime += verticalSpeed * Time.deltaTime;
+        }
+       
     }
     void FixedUpdate()
     {
-        rb.MovePosition(newPosition);
-
-        //Använder OverlapBox för att kolla om den nuddar en vägg. Viktigt att väggen den nuddar ligger på layern "Solid"
-        Collider2D collider = Physics2D.OverlapBox(transform.position + new Vector3((boxCol.bounds.extents.x / 2f) * direction, 0), new Vector2(boxCol.bounds.extents.x, boxCol.bounds.extents.y * 2f - 0.02f), 0f, maskIndex);
-        if (collider != null)
+        if(!PauseMenu.GameIsPaused)
         {
-            //vänder håll
-            direction *= -1;
+            //flyttar rigidbodyn till ny position - KJ
+            rb.MovePosition(newPosition);
+
+            //Använder OverlapBox för att kolla om den nuddar en vägg. Viktigt att väggen den nuddar ligger på layern "Solid" - KJ
+            Collider2D collider = Physics2D.OverlapBox(transform.position + new Vector3((boxCol.bounds.extents.x / 2f) * direction, 0), new Vector2(boxCol.bounds.extents.x, boxCol.bounds.extents.y * 2f - 0.02f), 0f, maskIndex);
+            if (collider != null)
+            {
+                //vänder håll
+                direction *= -1;
+            }
         }
+        
     }
 }
