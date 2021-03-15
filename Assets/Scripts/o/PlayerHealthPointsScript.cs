@@ -14,6 +14,8 @@ public class PlayerHealthPointsScript : MonoBehaviour
     [SerializeField] private float invisFrames = 0;
     [SerializeField] private int flickerRate = 2; //bestämemr hur snabbt man ska blinka när man är temporärt odödlig.
 
+    public GameObject GameOverScreen;
+
     //Räknar framesen man varit odödlig i - KJ
     private float frameCount;
 
@@ -101,6 +103,8 @@ public class PlayerHealthPointsScript : MonoBehaviour
 
     public void GameOver()
     {
+        GameOverScreen.SetActive(true);
+        GetComponent<PlayerMovement>().enabled = false;
         //En game over screen eller något
     }
 }

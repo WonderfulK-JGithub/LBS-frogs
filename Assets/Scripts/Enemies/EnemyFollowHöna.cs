@@ -12,12 +12,14 @@ public class EnemyFollowHöna : MonoBehaviour
     public GameObject bullet;
     public GameObject bulletParent;
     private Transform player;
+    float yPos;
 
     // Start is called before the first frame update
     void Start()
     {
         //Hönan letar efter en spelare med taggen "Player"
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        yPos = transform.position.y;
     }
 
     // Update is called once per frame
@@ -35,6 +37,8 @@ public class EnemyFollowHöna : MonoBehaviour
             Instantiate(bullet, bulletParent.transform.position, Quaternion.identity);
             nextFireTime = Time.time + fireRate;
         }
+
+        transform.position = new Vector3(transform.position.x, yPos);
     }
 
     private void OnDrawGizmosSelected()
