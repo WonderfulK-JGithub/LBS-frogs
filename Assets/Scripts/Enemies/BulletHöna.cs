@@ -8,6 +8,8 @@ public class BulletHöna : MonoBehaviour
     public float speed;
     Rigidbody2D bulletRB;
 
+    [SerializeField] int bulletDamage = 2;
+
     void Start()
     {
         //bullet, aka ägget, letar efter ett objekt med taggen "Player". När den ser, så kommer den skuta iväg en bullet mot den. 
@@ -21,10 +23,14 @@ public class BulletHöna : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //när den kolliderar med bara spelaren
-        if (collision.tag != "Enemy")
+        
+        if (collision.tag == "Player")
         {
             Destroy(gameObject);
+            PlayerHealthPointsScript health = collision.GetComponent<PlayerHealthPointsScript>();
+            health.TakeDamage(bulletDamage);
         }
+
     }
 
 }

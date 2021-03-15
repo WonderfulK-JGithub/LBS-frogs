@@ -67,7 +67,7 @@ public class PlayerBomb : MonoBehaviour
             canPlant = true;
         }
         //annars kollar den omd en har taggen StartArea - KJ
-        else if(collision.CompareTag("StartArea"))
+        else if(collision.CompareTag("StartArea") && countDown)
         {
             //Stänger av timern och gör banan avklarad
             countDown = false;

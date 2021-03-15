@@ -72,9 +72,10 @@ public class PlayerHealthPointsScript : MonoBehaviour
         {
             TakeDamage(enemy.damage);
         }
+        else print("efneafawf");
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         //kollar om man är temporärt odödlig
         if(allowHit)

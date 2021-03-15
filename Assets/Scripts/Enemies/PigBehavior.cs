@@ -36,8 +36,8 @@ public class PigBehavior : MonoBehaviour
             rb.velocity = moveForce;
 
             //Använder OverlapBox för att kolla om den nuddar en vägg. Viktigt att väggen den nuddar ligger på layern "Solid"
-            Collider2D collider = Physics2D.OverlapBox(transform.position + new Vector3((boxCol.bounds.extents.x / 2f) * direction, 0), new Vector2(boxCol.bounds.extents.x, boxCol.bounds.extents.y * 2f - 0.02f), 0f, maskIndex);
-            if (collider != null)
+            Collider2D colliders = Physics2D.OverlapBox(transform.position + new Vector3((boxCol.bounds.extents.x / 2f) * direction, 0), new Vector2(boxCol.bounds.extents.x, boxCol.bounds.extents.y * 2f - 0.02f), 0f, maskIndex);
+            if (colliders != null)
             {
                 //vänder håll
                 direction *= -1;

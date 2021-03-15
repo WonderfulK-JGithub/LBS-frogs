@@ -46,7 +46,8 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        SceneManager.LoadScene("TitleScreen");
+        print("fefa");
+        SceneManager.LoadScene(0);
         //Spelet startar i samma hastighet som förut
         Time.timeScale = 1f;
     }
