@@ -50,11 +50,12 @@ public class InventoryScript : MonoBehaviour
 
     //Private variables
     Transform canvas;
-
+    PlayerMovement player;
 
     private void Start()
     {
         canvas = GameObject.Find("Canvas").transform;
+        player = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
         //Skapar ett empty GameObject som ska fungera som parent till alla inventorySLots - Max
         Transform inventoryParent = new GameObject().transform;
@@ -153,6 +154,15 @@ public class InventoryScript : MonoBehaviour
                     weapons[i].GetComponent<WeaponScript>().SetActive(false);
                 }
             }
+        }
+
+        if(activeSlotNum == 0)
+        {
+            player.anim.SetBool("hasHögaffel", true);
+        }
+        else
+        {
+            player.anim.SetBool("hasHögaffel", false);
         }
     }
 

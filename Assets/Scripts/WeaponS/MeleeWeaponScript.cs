@@ -54,6 +54,7 @@ public class MeleeWeaponScript : MonoBehaviour
         canAttack = false;
         //ska inte heller kunna vända sig om mitt i en attack - Max
         player.canFlip = false;
+        player.anim.SetTrigger("attack");
 
         for (int i = 0; i < HitBoxes.ToArray().Length; i++)
         {

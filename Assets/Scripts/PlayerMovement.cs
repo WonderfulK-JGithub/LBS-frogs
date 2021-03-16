@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     //referens till playerns collider
     BoxCollider2D boxCol;
 
+    [HideInInspector]public Animator anim;
+    SpriteRenderer rend;
+
     int maskIndex;
 
     [Header("Facing")]
@@ -44,7 +47,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
+        //Hämtar referensen - Max
+        anim = GetComponent<Animator>();
+        rend = GetComponent<SpriteRenderer>();
 
         //hämtar referensen - KJ
         rb = GetComponent<Rigidbody2D>();
@@ -100,6 +105,9 @@ public class PlayerMovement : MonoBehaviour
             //Kollar om man trycker på hopp knappen (vilket just nu är bindat till space) och om man inte har hoppat - KJ
             if (Input.GetButtonDown("Jump") && !hasJumped)
             {
+                anim.SetTrigger("jump"); //Spelar animation - Max
+                anim.SetBool("isGrounded", false);
+
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);//lägger till en hopp kraft -KJ
 
                 hasJumped = true;
@@ -110,17 +118,18 @@ public class PlayerMovement : MonoBehaviour
 
             moveForce = new Vector2(vert * verticalSpd, rb.velocity.y); //Ser till att den eventuellt rör sig vänster eller höger, men alltid behåller fall - KJ
 
-
             //Flippar vilket håll som spelaren kollar åt - Max
             if (canFlip)
             {
                 if (vert < 0 && !isFlipped)
                 {
                     isFlipped = true;
+                    rend.flipX = true;
                 }
                 else if (vert > 0 && isFlipped)
                 {
                     isFlipped = false;
+                    rend.flipX = false;
                 }
             }
         }
@@ -133,7 +142,15 @@ public class PlayerMovement : MonoBehaviour
             //sätter rigidbodyns velocity till det den ska vara - KJ
             rb.velocity = moveForce;
 
-
+            //visar gå-animationen om spelaren rör sig - Max
+            if (rb.velocity.x > -0.2f && rb.velocity.x < 0.2f)
+            {
+                anim.SetBool("isWalking", false);
+            }
+            else
+            {
+                anim.SetBool("isWalking", true);
+            }
 
             if (rb.velocity.y <= 0)
             {
@@ -150,6 +167,11 @@ public class PlayerMovement : MonoBehaviour
                 if (collider != null)
                 {
                     hasJumped = false;
+                    anim.SetBool("isGrounded", true);
+                }
+                else
+                {
+                    anim.SetBool("isGrounded", false);
                 }
             }
             else
