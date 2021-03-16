@@ -14,17 +14,27 @@ public class EnemyFollowHöna : MonoBehaviour
     private Transform player;
     float yPos;
 
+    EnemyBehavior enemyScr;
+
     // Start is called before the first frame update
     void Start()
     {
         //Hönan letar efter en spelare med taggen "Player"
         player = GameObject.FindGameObjectWithTag("Player").transform;
         yPos = transform.position.y;
+
+        enemyScr = GetComponent<EnemyBehavior>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Om den dör
+        if (enemyScr.isDead)
+        {
+            //disablar scriptet
+            enabled = false;
+        }
         //if satsen gör att när spelaren är inom en viss area så kommer hönan att börja flytta på sig mot spelaren. 
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
         if (distanceFromPlayer < lineOfSite && distanceFromPlayer>shootingRange)

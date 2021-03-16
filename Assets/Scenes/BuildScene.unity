@@ -1264,21 +1264,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2144525819686902374, guid: c67eb21badf5c25449ea871af17d3e40,
-        type: 3}
-      propertyPath: damage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2144525819686902375, guid: c67eb21badf5c25449ea871af17d3e40,
-        type: 3}
-      propertyPath: horizontalSpeed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2144525819686902375, guid: c67eb21badf5c25449ea871af17d3e40,
-        type: 3}
-      propertyPath: direction
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 2144525819686902396, guid: c67eb21badf5c25449ea871af17d3e40,
         type: 3}
       propertyPath: m_Name
@@ -2519,12 +2504,12 @@ PrefabInstance:
     - target: {fileID: 8502925594992829363, guid: d02a27c3b6d1c554cb30bcd810756b58,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 3.67
       objectReference: {fileID: 0}
     - target: {fileID: 8502925594992829363, guid: d02a27c3b6d1c554cb30bcd810756b58,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -2.41
       objectReference: {fileID: 0}
     - target: {fileID: 8502925594992829363, guid: d02a27c3b6d1c554cb30bcd810756b58,
         type: 3}
@@ -2886,16 +2871,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChickenMCChicken
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701066911196203765, guid: 8d4d2ccc170910840a668d538a342423,
-        type: 3}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7701066911196203765, guid: 8d4d2ccc170910840a668d538a342423,
-        type: 3}
-      propertyPath: lineOfSite
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d4d2ccc170910840a668d538a342423, type: 3}
