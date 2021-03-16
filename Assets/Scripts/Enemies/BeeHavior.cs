@@ -18,6 +18,7 @@ public class BeeHavior : MonoBehaviour
 
     Rigidbody2D rb;
     BoxCollider2D boxCol;
+    EnemyBehavior enemyScr;
 
     int maskIndex;
 
@@ -28,6 +29,8 @@ public class BeeHavior : MonoBehaviour
         maskIndex = LayerMask.GetMask("Solid");
         boxCol = GetComponent<BoxCollider2D>();
 
+        enemyScr = GetComponent<EnemyBehavior>();
+
         verticalTime = verticalRange;
 
         startHeight = transform.position.y;
@@ -36,6 +39,7 @@ public class BeeHavior : MonoBehaviour
     
     void Update()
     {
+        
         if(!PauseMenu.GameIsPaused)
         {
             //räknar ut hur mycket den ska flyttas i x - KJ
@@ -51,7 +55,15 @@ public class BeeHavior : MonoBehaviour
 
             verticalTime += verticalSpeed * Time.deltaTime;
         }
-       
+
+        //om den dör
+        if (enemyScr.isDead)
+        {
+            //Gör att rb är stilla och disablar detta script
+            rb.bodyType = RigidbodyType2D.Static;
+            this.enabled = false;
+        }
+
     }
     void FixedUpdate()
     {

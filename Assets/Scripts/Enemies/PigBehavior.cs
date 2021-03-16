@@ -12,8 +12,12 @@ public class PigBehavior : MonoBehaviour
 
     Rigidbody2D rb;
     BoxCollider2D boxCol;
+    SpriteRenderer spr;
+    EnemyBehavior enemyScr;
 
     public LayerMask mask;
+
+   
 
     private void Start()
     {
@@ -22,13 +26,18 @@ public class PigBehavior : MonoBehaviour
         //skaffar referense till boxCollidern
         boxCol = GetComponent<BoxCollider2D>();
 
-        //skaffar en maskindex från layern "Solid"
-        //maskIndex = LayerMask.GetMask("Solid");
+        //skaffar referense till spriterenderer
+        spr = GetComponent<SpriteRenderer>();
+
+        enemyScr = GetComponent<EnemyBehavior>();
+
+
     }
 
     private void FixedUpdate()
     {
-        if(!PauseMenu.GameIsPaused)
+        
+        if (!PauseMenu.GameIsPaused)
         {
             moveForce = new Vector2(horizontalSpeed * direction, rb.velocity.y);
 
@@ -43,11 +52,20 @@ public class PigBehavior : MonoBehaviour
                 {
                     //vänder håll
                     direction *= -1;
+                    //vänder håll på spriten
+                    spr.flipX = direction == 1;
                 }
             }
             
 
         }
-       
+        //om den dör
+        if (enemyScr.isDead)
+        {
+            //Gör att rb är stilla och disablar detta script
+            rb.bodyType = RigidbodyType2D.Static;
+            this.enabled = false;
+        }
+
     }
 }

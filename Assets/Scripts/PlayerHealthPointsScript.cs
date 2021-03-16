@@ -70,7 +70,7 @@ public class PlayerHealthPointsScript : MonoBehaviour
 
         //om enemy == null betyder det att det blev en collision med en boxcollider som var triggerd, men inte var en enemy.
         //därför ska spelaren inte ta skada - KJ
-        if (enemy != null)
+        if (enemy != null && !enemy.isDead)
         {
             TakeDamage(enemy.damage);
         }

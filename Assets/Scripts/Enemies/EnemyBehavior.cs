@@ -12,11 +12,14 @@ public class EnemyBehavior : MonoBehaviour
     public int healthPoints;
     public int damage;
 
+    [HideInInspector]
+    public bool isDead = false;
     
 
     [Header("Hit Detection")]
     [SerializeField] private float invisFrames = 0;
     [SerializeField] private int flickerRate = 2; //bestämemr hur snabbt man ska blinka när man är temporärt odödlig.
+    [SerializeField] private float deathAnimationTime = 2;
 
     //Räknar framesen man varit odödlig i - KJ
     private float frameCount;
@@ -24,10 +27,12 @@ public class EnemyBehavior : MonoBehaviour
     [HideInInspector] public bool allowHit = true;
 
     SpriteRenderer rend;
+    Animator anim;
 
     void Start()
     {
         rend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -65,6 +70,14 @@ public class EnemyBehavior : MonoBehaviour
 
     //kallas av vapnet när fienden har 0 eller mindre hp - KJ
     public void EnemyDeath()
+    {
+        anim.SetBool("IsDead", true);
+        Invoke("Destruction", deathAnimationTime);
+        isDead = true;
+        
+    }
+
+    void Destruction()
     {
         Destroy(gameObject);
     }
