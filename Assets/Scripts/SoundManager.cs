@@ -19,6 +19,7 @@ public class SoundManager : MonoBehaviour
         backgroundMusic.Play();
     }
 
+    //Funktioner för att spela ljueffekter - Max
     public void PlaySound(AudioClip clip)
     {
         backgroundMusic.PlayOneShot(clip);
@@ -29,6 +30,7 @@ public class SoundManager : MonoBehaviour
         backgroundMusic.PlayOneShot(clip, volume);
     }
 
+    //En enkel funktion för att pausa musiken om man vill - Max
     public void PauseMusic()
     {
         backgroundMusic.Pause();
