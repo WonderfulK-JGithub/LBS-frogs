@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     //för så att spelaren inte kan byta håll - Max
     public bool canFlip = true;
 
-    void Start()
+    void Awake()
     {
         //Hämtar referensen - Max
         anim = GetComponent<Animator>();
