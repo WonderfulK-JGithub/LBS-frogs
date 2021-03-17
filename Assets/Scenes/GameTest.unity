@@ -157,6 +157,7 @@ MonoBehaviour:
   jumpForce: 5.4
   extraGravity: 2
   extraTime: 0.28
+  anim: {fileID: 0}
   isFlipped: 0
   canFlip: 1
 --- !u!50 &77046073
