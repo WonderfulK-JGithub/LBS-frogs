@@ -74,7 +74,7 @@ public class PlayerHealthPointsScript : MonoBehaviour
         {
             TakeDamage(enemy.damage);
         }
-        else print("efneafawf");
+       
     }
 
     public void TakeDamage(int damage)
@@ -105,7 +105,12 @@ public class PlayerHealthPointsScript : MonoBehaviour
     public void GameOver()
     {
         GameOverScreen.SetActive(true);
+
+        //stänger av spelaren
         GetComponent<PlayerMovement>().enabled = false;
-        //En game over screen eller något
+        rend.enabled = false;
+
+        PauseMenu.GameIsPaused = true;
+
     }
 }
