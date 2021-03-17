@@ -82,6 +82,7 @@ public class PlayerHealthPointsScript : MonoBehaviour
         //kollar om man är temporärt odödlig
         if(allowHit)
         {
+            GameObject.Find("GameManager").GetComponent<SoundManager>().PlaySound(GameObject.Find("GameManager").GetComponent<SoundManager>().playerHurt); //Spelar ljud - Max
             //Tar bort hp från spelaren
             playerHealth -= damage;
 
