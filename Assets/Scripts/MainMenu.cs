@@ -12,6 +12,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void LoadLevel(int index)
+    {
+        //Ladda upp en specifik scene
+        SceneManager.LoadScene(index);
+    }
+
     public void QuitGame ()
     {
         //Stänger av spelet. I unity kommer det inte stängas av, men i vänstra hörnet kommer man kunna se att det funkar
