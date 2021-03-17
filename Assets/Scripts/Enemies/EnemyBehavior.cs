@@ -86,5 +86,6 @@ public class EnemyBehavior : MonoBehaviour
     {
         allowHit = false;
         frameCount = invisFrames;
+        
     }
 }

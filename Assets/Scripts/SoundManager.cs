@@ -6,6 +6,13 @@ public class SoundManager : MonoBehaviour
 {
     AudioSource backgroundMusic;
 
+    public AudioClip playerHurt;
+    public AudioClip playerJump;
+
+    public AudioClip pigDie;
+    public AudioClip hönaDie;
+    public AudioClip beeDie;
+
     private void Start()
     {
         backgroundMusic = gameObject.GetComponent<AudioSource>();

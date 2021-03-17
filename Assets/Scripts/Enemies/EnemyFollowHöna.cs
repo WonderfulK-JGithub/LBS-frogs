@@ -32,6 +32,7 @@ public class EnemyFollowHöna : MonoBehaviour
         //Om den dör
         if (enemyScr.isDead)
         {
+            GameObject.Find("GameManager").GetComponent<SoundManager>().PlaySound(GameObject.Find("GameManager").GetComponent<SoundManager>().hönaDie); //Spelar ljud - Max
             //disablar scriptet
             enabled = false;
         }

@@ -63,6 +63,7 @@ public class PigBehavior : MonoBehaviour
         if (enemyScr.isDead)
         {
             //Gör att rb är stilla och disablar detta script
+            GameObject.Find("GameManager").GetComponent<SoundManager>().PlaySound(GameObject.Find("GameManager").GetComponent<SoundManager>().pigDie); //Spelar ljud - Max
             rb.bodyType = RigidbodyType2D.Static;
             this.enabled = false;
         }

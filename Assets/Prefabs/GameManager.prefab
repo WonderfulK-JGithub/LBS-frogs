@@ -70,6 +70,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc1005cb126e2f43a0eafab61efc0a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHurt: {fileID: 8300000, guid: e2a282a7f83281c40ae382f86611f7ba, type: 3}
+  playerJump: {fileID: 8300000, guid: 65ef931bdd33ced49bfd7cdfd18d4241, type: 3}
+  pigDie: {fileID: 8300000, guid: ec37bb6a3d94c8146964f385365ffd23, type: 3}
+  "h\xF6naDie": {fileID: 8300000, guid: 1b3b733f0ff5b254f947b0b04678bce7, type: 3}
+  beeDie: {fileID: 8300000, guid: c2498a7a2582c9945be6d6e77795ba8a, type: 3}
 --- !u!82 &5957053037728477341
 AudioSource:
   m_ObjectHideFlags: 0
@@ -82,13 +87,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b2001565459ea3c47a9170d8d300df40, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 0
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
