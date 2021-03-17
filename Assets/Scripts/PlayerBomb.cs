@@ -9,6 +9,7 @@ public class PlayerBomb : MonoBehaviour
     private bool canPlant = false;
     private bool countDown = false;
     private float timer = 0;
+    [SerializeField] private float plantTime = 5;
     [SerializeField] private float escapeTime = 20;
 
     [SerializeField] private GameObject bombPrefab = null;
@@ -16,6 +17,10 @@ public class PlayerBomb : MonoBehaviour
     [SerializeField] private Text timerText = null;
 
     [SerializeField] private GameObject victoryScreen = null;
+
+    [SerializeField] private Slider plantSlider = null;
+
+    private bool isPlanting = false;
 
     private void Start()
     {
@@ -36,14 +41,44 @@ public class PlayerBomb : MonoBehaviour
                 }
             }
             //annars kollar om man trycker på Plantknappen och kan planta bomben - KJ
-            else if (Input.GetButtonDown("Plant") && canPlant)
+            else if (Input.GetButtonDown("Plant") && canPlant && !countDown)
             {
-                countDown = true;
-                timer = escapeTime;
-                Instantiate(bombPrefab, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+                isPlanting = true;
+                timer = plantTime;
+                plantSlider.gameObject.SetActive(true);
+            }
+        }
+
+        if(isPlanting)
+        {
+            if (Input.GetButton("Plant"))
+            {
+                timer -= 1 * Time.deltaTime;
+
+                plantSlider.value = 1 - timer / plantTime;
+
+                if (timer <= 0)
+                {
+                    PlantBomb();
+                    isPlanting = false;
+                }
+            }
+            else
+            {
+                isPlanting = false;
+                plantSlider.gameObject.SetActive(false);
             }
         }
         
+        
+    }
+
+    void PlantBomb()
+    {
+        countDown = true;
+        timer = escapeTime;
+        Instantiate(bombPrefab, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+        plantSlider.gameObject.SetActive(false);
     }
 
     void UppdateText()
@@ -57,6 +92,12 @@ public class PlayerBomb : MonoBehaviour
     {
         //yippie
         victoryScreen.SetActive(true);
+
+        //stänger av spelaren
+        GetComponent<PlayerMovement>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        PauseMenu.GameIsPaused = true;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
