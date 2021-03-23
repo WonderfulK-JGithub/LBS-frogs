@@ -22,9 +22,11 @@ public class PlayerBomb : MonoBehaviour
 
     private bool isPlanting = false;
 
+    SoundManager snd;
+
     private void Start()
     {
-        
+        snd = FindObjectOfType<SoundManager>();
     }
     private void Update()
     {
@@ -51,16 +53,24 @@ public class PlayerBomb : MonoBehaviour
 
         if(isPlanting)
         {
-            if (Input.GetButton("Plant"))
+            if (Input.GetAxisRaw("Horizontal") == 0)
             {
-                timer -= 1 * Time.deltaTime;
-
-                plantSlider.value = 1 - timer / plantTime;
-
-                if (timer <= 0)
+                if (Input.GetButton("Plant"))
                 {
-                    PlantBomb();
+                    timer -= 1 * Time.deltaTime;
+
+                    plantSlider.value = 1 - timer / plantTime;
+
+                    if (timer <= 0)
+                    {
+                        PlantBomb();
+                        isPlanting = false;
+                    }
+                }
+                else
+                {
                     isPlanting = false;
+                    plantSlider.gameObject.SetActive(false);
                 }
             }
             else
@@ -68,6 +78,7 @@ public class PlayerBomb : MonoBehaviour
                 isPlanting = false;
                 plantSlider.gameObject.SetActive(false);
             }
+
         }
         
         
@@ -79,6 +90,8 @@ public class PlayerBomb : MonoBehaviour
         timer = escapeTime;
         Instantiate(bombPrefab, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
         plantSlider.gameObject.SetActive(false);
+
+        snd.backgroundMusic.clip = snd.superMegaEpicBombMusic;
     }
 
     void UppdateText()

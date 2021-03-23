@@ -59,8 +59,9 @@ public class BeeHavior : MonoBehaviour
         //om den dör
         if (enemyScr.isDead)
         {
+            
             //Gör att rb är stilla och disablar detta script
-            GameObject.Find("GameManager").GetComponent<SoundManager>().PlaySound(GameObject.Find("GameManager").GetComponent<SoundManager>().beeDie); //Spelar ljud - Max
+            FindObjectOfType<SoundManager>().PlaySound(FindObjectOfType<SoundManager>().beeDie); //Spelar ljud - Max
             rb.bodyType = RigidbodyType2D.Static;
             this.enabled = false;
         }

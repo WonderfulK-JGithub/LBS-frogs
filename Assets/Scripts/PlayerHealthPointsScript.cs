@@ -104,11 +104,13 @@ public class PlayerHealthPointsScript : MonoBehaviour
 
     public void GameOver()
     {
+        
         GameOverScreen.SetActive(true);
 
         //stänger av spelaren
         GetComponent<PlayerMovement>().enabled = false;
         rend.enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
 
         PauseMenu.GameIsPaused = true;
 
