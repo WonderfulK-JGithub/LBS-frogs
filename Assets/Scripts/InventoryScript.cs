@@ -40,10 +40,12 @@ public class InventoryScript : MonoBehaviour
     [Range(0, 9)] public int inventorySlotsAmount = 5;
     public int spacesBetweenSlots;
     public Vector2 position;
+    public float size = 1;
 
     [Header("Prefabs")]
     public GameObject inventorySlotPrefab;
     public GameObject defaultWeapon;
+    public GameObject thrownObject;
 
     [Header("Debug")]
     public bool addWeapon = false;
@@ -65,13 +67,19 @@ public class InventoryScript : MonoBehaviour
         //Skapar alla inventorySlots och placerar dem på en rad - Max
         for (int i = -(Mathf.FloorToInt(inventorySlotsAmount/2)); i <= Mathf.FloorToInt(inventorySlotsAmount / 2); i++)
         {
-            Debug.Log(i);
+            Debug.Log(spacesBetweenSlots * i);
+            Transform newSlotObj = new GameObject().transform;
+            newSlotObj.parent = inventoryParent;
+            newSlotObj.localPosition = new Vector3(0, 0, 0);
+            newSlotObj.position += new Vector3(spacesBetweenSlots * i, 0, 0);
 
-            RectTransform newSlot = Instantiate(inventorySlotPrefab, inventoryParent).GetComponent<RectTransform>();
-            newSlot.anchoredPosition += new Vector2(spacesBetweenSlots*i, 0);
+            RectTransform newSlot = Instantiate(inventorySlotPrefab, newSlotObj).GetComponent<RectTransform>();
+            //newSlot.anchoredPosition += new Vector2(spacesBetweenSlots*i, 0);
 
             inventorySlots.Add(newSlot.gameObject);
         }
+
+        inventoryParent.localScale *= size;
 
         //Lägger till defaultvapnet i första sloten - Max
         AddWeapon(defaultWeapon);
@@ -99,10 +107,11 @@ public class InventoryScript : MonoBehaviour
         }
 
         //Kollar om throw-knappen trycks ner, då ska vapnet man håller i kastas bort - Max
-        if (Input.GetButtonDown("Fire2"))
+        //Tog bort den här funktionen pga för att den inte behövs - Max
+        /*if (Input.GetButtonDown("Fire2"))
         {
             ThrowWeapon();
-        }
+        }*/
 
         //Bara för debug-menyn, man kan lägga in vapen via inspectorn - Max
         if (addWeapon != false)
@@ -169,21 +178,41 @@ public class InventoryScript : MonoBehaviour
     public void AddWeapon(GameObject weapon)
     {
         GameObject newWeapon = Instantiate(weapon, Vector3.zero, Quaternion.identity);
+        
         newWeapon.GetComponent<WeaponScript>().playerTr = GameObject.Find("Player").transform;
         //If-statement kollar om det finns plats för ett nytt vapen i inventoryt/hotbaren - Max
         if(weapons.Count < inventorySlotsAmount)
         {
             //Finns det plats så skapas ett nytt vapen på första möjliga inventorySlot - Max
             weapons.Add(newWeapon);
-            Instantiate(newWeapon.transform.GetChild(0), inventorySlots[weapons.Count - 1].transform);
+
+            Transform visuals = new GameObject().transform; // Instantiate(new GameObject, inventorySlots[weapons.Count - 1].transform.parent);
+            visuals.parent = inventorySlots[weapons.Count - 1].transform.parent;
+            visuals.transform.localPosition = new Vector3(0, 0, 0);
+            //visuals.SetAsFirstSibling();
+            visuals.localScale *= size;
+
+            Image visualImage = inventorySlots[weapons.Count - 1].transform.parent.GetChild(1).gameObject.AddComponent<Image>();
+            visualImage.sprite = newWeapon.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
         }
         else
         {
             //Annars så byts det equippade vapnet ut mot det man plockar upp - Max
             weapons[activeSlotNum] = newWeapon;
-            Destroy(inventorySlots[activeSlotNum].transform.GetChild(0).gameObject);
-            Instantiate(newWeapon.transform.GetChild(0), inventorySlots[activeSlotNum].transform);
+            Destroy(inventorySlots[weapons.Count - 1].transform.parent.GetChild(1).gameObject);
+
+            Transform visuals = new GameObject().transform; // Instantiate(new GameObject, inventorySlots[weapons.Count - 1].transform.parent);
+            visuals.parent = inventorySlots[weapons.Count - 1].transform.parent;
+            visuals.transform.localPosition = new Vector3(0, 0, 0);
+            //visuals.SetAsFirstSibling();
+            visuals.localScale *= size;
+
+            Image visualImage = inventorySlots[weapons.Count - 1].transform.parent.GetChild(1).gameObject.AddComponent<Image>();
+            visualImage.sprite = newWeapon.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
         }
+
+        SetActiveSlot(weapons.Count - 1);
+        newWeapon.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
     }
 
     public void ThrowWeapon()
@@ -194,14 +223,17 @@ public class InventoryScript : MonoBehaviour
             return;
         }
 
+        GameObject newThrownObj = Instantiate(thrownObject, player.transform.position, Quaternion.identity);
+        newThrownObj.GetComponent<SpriteRenderer>().sprite = inventorySlots[weapons.Count - 1].transform.parent.GetChild(1).GetComponent<SpriteRenderer>().sprite;
+
         //Om det inte finns något vapen längre till höger i inventoryt så ska detta vapen helt försvinna - Max
-        if(activeSlotNum == weapons.Count - 1)
+        if (activeSlotNum == weapons.Count - 1)
         {
             weapons.Remove(weapons[activeSlotNum]);
         }
 
         //Tar bort previewen av vapnet - Max
-        Destroy(inventorySlots[activeSlotNum].transform.GetChild(0).gameObject);
+        Destroy(inventorySlots[weapons.Count - 1].transform.parent.GetChild(1).gameObject);
 
         //En for-loop som går igenom alla vapen i inventorySlotsen till höger om slotet man kastar från, för att flytta alla vapen ett steg åt vänster för att fylla hålet efter vapnet som försvinner - Max
         //i representerar, som man kan se, i början slotet till höger om det man kastar från, och rör sig sedan åt höger för varje loop - Max
