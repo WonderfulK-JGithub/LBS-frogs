@@ -10,7 +10,7 @@ public class PlayerBomb : MonoBehaviour
     private bool countDown = false;
     private float timer = 0;
     [SerializeField] private float plantTime = 5;
-    [SerializeField] private float escapeTime = 20;
+    [SerializeField] private float escapeTime = 60;
 
     [SerializeField] private GameObject bombPrefab = null;
 

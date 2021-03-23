@@ -1831,6 +1831,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VictoryScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 6126740207680473744, guid: 6fe635fb61080344792c80066eec9747,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6126740207680473745, guid: 6fe635fb61080344792c80066eec9747,
         type: 3}
       propertyPath: m_LocalPosition.x
