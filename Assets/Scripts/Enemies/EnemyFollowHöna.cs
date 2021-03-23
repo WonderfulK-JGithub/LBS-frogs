@@ -14,6 +14,8 @@ public class EnemyFollowHöna : MonoBehaviour
     private Transform player;
     float yPos;
 
+    Rigidbody2D rb;
+
     EnemyBehavior enemyScr;
 
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class EnemyFollowHöna : MonoBehaviour
         yPos = transform.position.y;
 
         enemyScr = GetComponent<EnemyBehavior>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -40,7 +43,11 @@ public class EnemyFollowHöna : MonoBehaviour
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
         if (distanceFromPlayer < lineOfSite && distanceFromPlayer>shootingRange)
         {
-            transform.position = Vector2.MoveTowards(this.transform.position, player.position, speed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(this.transform.position, player.position, speed * Time.deltaTime);
+
+            
+
+           
         }
         //Else if satsen gör att om spelaren är inom "shooting range" så kommer hönan att börja skuta ägg
         else if (distanceFromPlayer <= shootingRange && nextFireTime <Time.time)
