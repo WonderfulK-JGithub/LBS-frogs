@@ -12,21 +12,24 @@ public class EnemyFollowHöna : MonoBehaviour
     public GameObject bullet;
     public GameObject bulletParent;
     private Transform player;
-    float yPos;
+    //float yPos;
 
     Rigidbody2D rb;
+    float direction = 0;
 
     EnemyBehavior enemyScr;
+    SpriteRenderer rend;
 
     // Start is called before the first frame update
     void Start()
     {
         //Hönan letar efter en spelare med taggen "Player"
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        yPos = transform.position.y;
+        //yPos = transform.position.y;
 
         enemyScr = GetComponent<EnemyBehavior>();
         rb = GetComponent<Rigidbody2D>();
+        rend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -45,9 +48,14 @@ public class EnemyFollowHöna : MonoBehaviour
         {
             //transform.position = Vector2.MoveTowards(this.transform.position, player.position, speed * Time.deltaTime);
 
-            
+            //kollar vilket håll hönan ska gå
+            direction = transform.position.x > player.position.x ? -1 : 1;
 
-           
+            //nytt sätt för hönan att röra sig, använder sig nu av en rigidbody
+            rb.MovePosition(new Vector2(transform.position.x + speed * Time.deltaTime * direction, transform.position.y));
+
+            //Ger spriten rätt håll
+            rend.flipX = direction == 1;
         }
         //Else if satsen gör att om spelaren är inom "shooting range" så kommer hönan att börja skuta ägg
         else if (distanceFromPlayer <= shootingRange && nextFireTime <Time.time)
@@ -56,7 +64,7 @@ public class EnemyFollowHöna : MonoBehaviour
             nextFireTime = Time.time + fireRate;
         }
 
-        transform.position = new Vector3(transform.position.x, yPos);
+        //transform.position = new Vector3(transform.position.x, yPos);
     }
 
     private void OnDrawGizmosSelected()

@@ -71,7 +71,7 @@ public class BeeHavior : MonoBehaviour
         if(!PauseMenu.GameIsPaused)
         {
             //flyttar rigidbodyn till ny position - KJ
-            rb.MovePosition(newPosition);
+            if(newPosition != Vector2.zero)rb.MovePosition(newPosition);
 
             //Använder OverlapBox för att kolla om den nuddar en vägg. Viktigt att väggen den nuddar ligger på layern "Solid" - KJ
             Collider2D collider = Physics2D.OverlapBox(transform.position + new Vector3((boxCol.bounds.extents.x / 2f) * direction, 0), new Vector2(boxCol.bounds.extents.x, boxCol.bounds.extents.y * 2f - 0.02f), 0f, maskIndex);
