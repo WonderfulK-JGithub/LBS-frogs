@@ -108,7 +108,9 @@ public class PlayerMovement : MonoBehaviour
                 anim.SetTrigger("jump"); //Spelar animation - Max
                 anim.SetBool("isGrounded", false);
 
-                GameObject.Find("GameManager").GetComponent<SoundManager>().PlaySound(GameObject.Find("GameManager").GetComponent<SoundManager>().playerJump); //Spelar ljud - Max
+               
+
+                FindObjectOfType<SoundManager>().PlaySound(FindObjectOfType<SoundManager>().playerJump); //Spelar ljud - Max
 
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);//lägger till en hopp kraft -KJ
 
