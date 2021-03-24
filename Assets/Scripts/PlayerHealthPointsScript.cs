@@ -111,6 +111,7 @@ public class PlayerHealthPointsScript : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = false;
         rend.enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         PauseMenu.GameIsPaused = true;
 

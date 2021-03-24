@@ -13,6 +13,7 @@ public class PlayerBomb : MonoBehaviour
     [SerializeField] private float escapeTime = 60;
 
     [SerializeField] private GameObject bombPrefab = null;
+    GameObject bombReference;
 
     [SerializeField] private Text timerText = null;
 
@@ -32,35 +33,58 @@ public class PlayerBomb : MonoBehaviour
     {
         if(!PauseMenu.GameIsPaused)
         {
+            
             //kollar om timern ska gå ner - KJ
             if (countDown)
             {
                 timer -= 1 * Time.deltaTime;
                 UppdateText();
+
+                //om timer är 0 (vilket betyder att man kommer exploderas) - KJ
                 if (timer <= 0)
                 {
+                    //kallar GameOver i PlayerHealthPointsScript scriptet - KJ
                     GetComponent<PlayerHealthPointsScript>().GameOver();
+
+                    //Gör att kameran skakar lite - KJ
+                    StartCoroutine(FindObjectOfType<CameraFollow>().ScreenShake());
+
+                    //Stoppar musiken och spelar en bomb ljudeffekt - KJ
+                    snd.backgroundMusic.Stop();
+                    snd.PlaySound(snd.bombSoundEffect,2);
+
+                    //förstör bombobjektet, om man av någon anledning bestämmer sig för att vänta och kolla vad som händer med bomben - KJ
+                    Destroy(bombReference);
                 }
             }
             //annars kollar om man trycker på Plantknappen och kan planta bomben - KJ
             else if (Input.GetButtonDown("Plant") && canPlant && !countDown)
             {
+                
                 isPlanting = true;
+
+                //Ger timer variabeln den tid som plantTime har - KJ
                 timer = plantTime;
+
+                //Gör att man kan se slidern - KJ
                 plantSlider.gameObject.SetActive(true);
             }
         }
 
         if(isPlanting)
         {
+            //Ser till att man inte kan planta medans man går - KJ
             if (Input.GetAxisRaw("Horizontal") == 0)
             {
                 if (Input.GetButton("Plant"))
                 {
+                    //tar bort tid från timern
                     timer -= 1 * Time.deltaTime;
 
+                    //Gör att man kan se på slidern hur mycket mer man måste hålla ner plantknappen - KJ
                     plantSlider.value = 1 - timer / plantTime;
 
+                    
                     if (timer <= 0)
                     {
                         PlantBomb();
@@ -69,12 +93,14 @@ public class PlayerBomb : MonoBehaviour
                 }
                 else
                 {
+                    //slutar planta - KJ
                     isPlanting = false;
                     plantSlider.gameObject.SetActive(false);
                 }
             }
             else
             {
+                //slutar planta - KJ
                 isPlanting = false;
                 plantSlider.gameObject.SetActive(false);
             }
@@ -86,17 +112,25 @@ public class PlayerBomb : MonoBehaviour
 
     void PlantBomb()
     {
+        //Ser till att timern börjar räkna ner när man plantat bomben - KJ
         countDown = true;
         timer = escapeTime;
-        Instantiate(bombPrefab, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+
+        //Skapar ett bombObjekt - KJ
+        bombReference = Instantiate(bombPrefab, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+
+        //Tar bort slidern - KJ
         plantSlider.gameObject.SetActive(false);
 
+        //Ändrar musicen till en lite mer episk låt - KJ
         snd.backgroundMusic.clip = snd.superMegaEpicBombMusic;
+        snd.backgroundMusic.Play();
+        
     }
 
     void UppdateText()
     {
-        //avrundar timer till 2 decimal tal och ger dens värde till timer texten
+        //avrundar timer till 2 decimal tal och ger dens värde till timer texten - KJ
         float rounded = Mathf.Round(timer * 100)/100;
         timerText.text = rounded.ToString();
     }
@@ -106,7 +140,7 @@ public class PlayerBomb : MonoBehaviour
         //yippie
         victoryScreen.SetActive(true);
 
-        //stänger av spelaren
+        //stänger av spelaren - KJ
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
 

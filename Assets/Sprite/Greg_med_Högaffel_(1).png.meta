@@ -1,37 +1,31 @@
 fileFormatVersion: 2
-guid: 647ca1ac299b448408f1147b0e37bba0
+guid: 66902651675568f48b8c054c5cceeca9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5763472555037941674
-    second: Greg_hoppa__stilla_0
+      213: 2527368408637648150
+    second: "Greg_med_H\xF6gaffel_(1)_0"
   - first:
-      213: 3068942517744484137
-    second: Greg_hoppa__stilla_1
+      213: -2245438272583736156
+    second: "Greg_med_H\xF6gaffel_(1)_1"
   - first:
-      213: 8632168005253618902
-    second: Greg_hoppa__stilla_2
+      213: -7251460016741622856
+    second: "Greg_med_H\xF6gaffel_(1)_2"
   - first:
-      213: 1843266850449218328
-    second: Greg_hoppa__stilla_3
+      213: -4772294704213391979
+    second: "Greg_med_H\xF6gaffel_(1)_3"
   - first:
-      213: -1731102896296779926
-    second: Greg_hoppa__stilla_4
+      213: -1632736646935596389
+    second: "Greg_med_H\xF6gaffel_(1)_4"
   - first:
-      213: -4949145932715678776
-    second: Greg_hoppa__stilla_5
+      213: 3665748758841502081
+    second: "Greg_med_H\xF6gaffel_(1)_5"
   - first:
-      213: -400372835640505130
-    second: Greg_hoppa__stilla_6
+      213: 6668817389019715467
+    second: "Greg_med_H\xF6gaffel_(1)_6"
   - first:
-      213: -4975748148158443327
-    second: Greg_hoppa__stilla_7
-  - first:
-      213: -8050997452665561410
-    second: Greg_hoppa__stilla_8
-  - first:
-      213: 9191752766058076963
-    second: Greg_hoppa__stilla_9
+      213: -1060617672833460525
+    second: "Greg_med_H\xF6gaffel_(1)_7"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -125,77 +119,26 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Greg_hoppa__stilla_0
+      name: "Greg_med_H\xF6gaffel_(1)_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 576
-        width: 192
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aafdfbba0c7fbff40800000000000000
-      internalID: 5763472555037941674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Greg_hoppa__stilla_1
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 576
-        width: 192
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92fb04eb5f2179a20800000000000000
-      internalID: 3068942517744484137
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Greg_hoppa__stilla_2
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 576
-        width: 192
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6dc52aac01f9bc770800000000000000
-      internalID: 8632168005253618902
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Greg_hoppa__stilla_3
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 51
         y: 384
         width: 192
         height: 192
@@ -206,19 +149,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81b57473f69949910800000000000000
-      internalID: 1843266850449218328
+      spriteID: 61d24655d24031320800000000000000
+      internalID: 2527368408637648150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greg_hoppa__stilla_4
+      name: "Greg_med_H\xF6gaffel_(1)_2"
       rect:
         serializedVersion: 2
-        x: 192
+        x: 337
         y: 384
-        width: 192
+        width: 220
         height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -227,40 +170,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6f949c6613e9f7e0800000000000000
-      internalID: -1731102896296779926
+      spriteID: 8bbda2fd883ad5b90800000000000000
+      internalID: -7251460016741622856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greg_hoppa__stilla_5
+      name: "Greg_med_H\xF6gaffel_(1)_3"
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
-        width: 192
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c3a9e2fef9115bb0800000000000000
-      internalID: -4949145932715678776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Greg_hoppa__stilla_6
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 28
         y: 192
-        width: 192
+        width: 240
         height: 192
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -269,71 +191,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dc8ee9f607917af0800000000000000
-      internalID: -400372835640505130
+      spriteID: 59502ef404765cdb0800000000000000
+      internalID: -4772294704213391979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greg_hoppa__stilla_7
+      name: "Greg_med_H\xF6gaffel_(1)_5"
       rect:
         serializedVersion: 2
-        x: 192
-        y: 192
-        width: 192
+        x: 351
+        y: 191
+        width: 249
         height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.39, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c055310c6792fab0800000000000000
-      internalID: -4975748148158443327
+      spriteID: 189a39ef21b5fd230800000000000000
+      internalID: 3665748758841502081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Greg_hoppa__stilla_8
+      name: "Greg_med_H\xF6gaffel_(1)_6"
       rect:
         serializedVersion: 2
-        x: 384
-        y: 192
-        width: 192
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ebe5b4a097c154090800000000000000
-      internalID: -8050997452665561410
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Greg_hoppa__stilla_9
-      rect:
-        serializedVersion: 2
-        x: 0
+        x: 30
         y: 0
-        width: 192
+        width: 294
         height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32b1b14d07aaf8f70800000000000000
-      internalID: 9191752766058076963
+      spriteID: b87d77815166c8c50800000000000000
+      internalID: 6668817389019715467
       vertices: []
       indices: 
       edges: []

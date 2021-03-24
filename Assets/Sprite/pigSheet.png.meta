@@ -1,22 +1,31 @@
 fileFormatVersion: 2
-guid: edf035711c746784a9a9f3c406073b86
+guid: 7c311b563166a6b4b8cd5011f49249c3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1717906601220274641
-    second: Greg__shotgun_0
+      213: -7961917207654042984
+    second: pigSheet_0
   - first:
-      213: 8700903043317936099
-    second: Greg__shotgun_1
+      213: 8757641182057445762
+    second: pigSheet_1
   - first:
-      213: 6741913765468142115
-    second: Greg__shotgun_2
+      213: 1283901542164139465
+    second: pigSheet_2
   - first:
-      213: 134329988746870043
-    second: Greg__shotgun_3
+      213: -6449790858111239655
+    second: pigSheet_3
   - first:
-      213: -7834336584534415242
-    second: Greg__shotgun_4
+      213: 7795261478093876153
+    second: pigSheet_4
+  - first:
+      213: 8700907669172072806
+    second: pigSheet_5
+  - first:
+      213: 6352715632058816020
+    second: pigSheet_6
+  - first:
+      213: -6091269165755014338
+    second: pigSheet_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -60,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 192
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,7 +108,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -114,97 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Greg__shotgun_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 384
-        width: 192
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2687fc4c05c828e0800000000000000
-      internalID: -1717906601220274641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Greg__shotgun_1
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 384
-        width: 192
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3efa412f731dfb870800000000000000
-      internalID: 8700903043317936099
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Greg__shotgun_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 192
-        width: 192
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 32a7b0979d6109d50800000000000000
-      internalID: 6741913765468142115
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Greg__shotgun_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 192
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1d70fdb96c3dd100800000000000000
-      internalID: 134329988746870043
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Greg__shotgun_4
+      name: pigSheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 192
+        width: 61
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,8 +137,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 678aafb6268d64390800000000000000
-      internalID: -7834336584534415242
+      spriteID: 892f5b2db76918190800000000000000
+      internalID: -7961917207654042984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigSheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289bdde4144698970800000000000000
+      internalID: 8757641182057445762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigSheet_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cd054376a551d110800000000000000
+      internalID: 1283901542164139465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigSheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ab7b2136dbd76a0800000000000000
+      internalID: -6449790858111239655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigSheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb621563055e2c60800000000000000
+      internalID: 7795261478093876153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigSheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 661397cfc65dfb870800000000000000
+      internalID: 8700907669172072806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigSheet_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416dfef8531692850800000000000000
+      internalID: 6352715632058816020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pigSheet_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e33e1e777f6777ba0800000000000000
+      internalID: -6091269165755014338
       vertices: []
       indices: 
       edges: []

@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip playerHurt;
     public AudioClip playerJump;
     public AudioClip superMegaEpicBombMusic;
+    public AudioClip bombSoundEffect;
 
     public AudioClip pigDie;
     public AudioClip hönaDie;
