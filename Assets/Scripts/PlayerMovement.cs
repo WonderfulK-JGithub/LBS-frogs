@@ -187,15 +187,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-    /*
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if(collision.transform.parent.gameObject.layer == 12)
+        if(collision.transform.root.gameObject.layer == 12)
         {
             FindObjectOfType<InventoryScript>().AddWeapon(collision.transform.parent.gameObject.GetComponent<ThrownWeaponScript>().weapon);
             Destroy(collision.transform.parent.gameObject);
         }
     }
-    */
+    
 }
