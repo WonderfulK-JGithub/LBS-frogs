@@ -7,13 +7,14 @@ public class PauseMenu : MonoBehaviour
 {
     // Gjort av Melker J
     //Är spelet pausat?
+    // Ja, det är det
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
 
     private void Start()
     {
-        GameIsPaused = false;
+       
     }
 
     // Update is called once per frame

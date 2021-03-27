@@ -59,15 +59,18 @@ public class EnemyFollowHöna : MonoBehaviour
             //Ger spriten rätt håll
             rend.flipX = direction == 1;
 
-            anim.SetBool("isWalkning", true);
+            anim.SetBool("IsWalking", true);
         }
-        //Else if satsen gör att om spelaren är inom "shooting range" så kommer hönan att börja skuta ägg
-        else if (distanceFromPlayer <= shootingRange && nextFireTime <Time.time)
+        //Else 
+        else 
         {
-            Instantiate(bullet, bulletParent.transform.position, Quaternion.identity);
-            nextFireTime = Time.time + fireRate;
-
-            anim.SetBool("isWalkning", false);
+            //if satsen gör att om spelaren är inom "shooting range" så kommer hönan att börja skuta ägg
+            if (distanceFromPlayer <= shootingRange && nextFireTime < Time.time)
+            {
+                Instantiate(bullet, bulletParent.transform.position, Quaternion.identity);
+                nextFireTime = Time.time + fireRate;
+            }
+            anim.SetBool("IsWalking", false);
         }
 
         //transform.position = new Vector3(transform.position.x, yPos);
