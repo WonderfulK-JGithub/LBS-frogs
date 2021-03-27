@@ -19,6 +19,7 @@ public class EnemyFollowHöna : MonoBehaviour
 
     EnemyBehavior enemyScr;
     SpriteRenderer rend;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class EnemyFollowHöna : MonoBehaviour
         enemyScr = GetComponent<EnemyBehavior>();
         rb = GetComponent<Rigidbody2D>();
         rend = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -56,12 +58,16 @@ public class EnemyFollowHöna : MonoBehaviour
 
             //Ger spriten rätt håll
             rend.flipX = direction == 1;
+
+            anim.SetBool("isWalkning", true);
         }
         //Else if satsen gör att om spelaren är inom "shooting range" så kommer hönan att börja skuta ägg
         else if (distanceFromPlayer <= shootingRange && nextFireTime <Time.time)
         {
             Instantiate(bullet, bulletParent.transform.position, Quaternion.identity);
             nextFireTime = Time.time + fireRate;
+
+            anim.SetBool("isWalkning", false);
         }
 
         //transform.position = new Vector3(transform.position.x, yPos);

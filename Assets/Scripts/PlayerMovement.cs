@@ -158,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (rb.velocity.y <= 0)
             {
+                
                 //ökar gravitationen på objektet när den faller, så att man faller mycket snabbare och inte känner att man är på månen - KJ
                 rb.gravityScale = ogGravityScale * extraGravity;
 
@@ -175,6 +176,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else
                 {
+                    hasJumped = true;
                     anim.SetBool("isGrounded", false);
                 }
             }
