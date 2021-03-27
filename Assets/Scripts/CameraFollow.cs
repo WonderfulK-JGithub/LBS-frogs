@@ -71,7 +71,7 @@ public class CameraFollow : MonoBehaviour
         player = housePoint;
 
         
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
         //ändrar tillbaka "player" till playerns transform - KJ
         player = FindObjectOfType<PlayerMovement>().transform;

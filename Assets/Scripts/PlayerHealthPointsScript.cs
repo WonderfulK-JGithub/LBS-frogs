@@ -22,9 +22,15 @@ public class PlayerHealthPointsScript : MonoBehaviour
     private bool allowHit = true;
 
     SpriteRenderer rend;
+    HealthBar healthBar;
+
     void Start()
     {
         playerHealth = playerMaxHealth;
+
+        //Får healthbaren att fungera - Max
+        healthBar = FindObjectOfType<HealthBar>();
+        healthBar.SetMaxHealth(playerMaxHealth);
 
         rend = GetComponent<SpriteRenderer>();
     }
@@ -85,10 +91,12 @@ public class PlayerHealthPointsScript : MonoBehaviour
             GameObject.Find("GameManager").GetComponent<SoundManager>().PlaySound(GameObject.Find("GameManager").GetComponent<SoundManager>().playerHurt); //Spelar ljud - Max
             //Tar bort hp från spelaren
             playerHealth -= damage;
+            
 
             //kollar om man har 0 eller mindre hp
             if (playerHealth <= 0)
             {
+                healthBar.SetHealth(0); //Uppdaterar healthbaren - Max
                 playerHealth = 0;
                 GameOver();
             }
@@ -97,6 +105,8 @@ public class PlayerHealthPointsScript : MonoBehaviour
                 //Ger spelaren temporärt odödlighet (invisible frames)
                 frameCount = invisFrames;
                 allowHit = false;
+
+                healthBar.SetHealth(playerHealth); //Uppdaterar healthbaren - Max
             }
         }
         

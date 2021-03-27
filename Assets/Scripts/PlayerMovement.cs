@@ -172,12 +172,12 @@ public class PlayerMovement : MonoBehaviour
                 if (collider != null)
                 {
                     hasJumped = false;
-                    anim.SetBool("isGrounded", true);
+                    anim.SetBool("isGrounded", true); //Gör så att gå och idle-animationen spelas - Max
                 }
                 else
                 {
                     hasJumped = true;
-                    anim.SetBool("isGrounded", false);
+                    anim.SetBool("isGrounded", false); //Gör så att fall-animationen spelas - Max
                 }
             }
             else
