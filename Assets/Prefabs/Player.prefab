@@ -151,6 +151,7 @@ MonoBehaviour:
   jumpForce: 5.4
   extraGravity: 2
   extraTime: 0.28
+  anim: {fileID: 0}
   isFlipped: 0
   canFlip: 1
 --- !u!114 &4258699661574230347
@@ -182,11 +183,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31bc5b469bca12647801b23da6578c07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plantTime: 5
   escapeTime: 20
-  bombPrefab: {fileID: 8356487297525945651, guid: 46de8904885675345a7527da02cf4558,
-    type: 3}
+  bombPrefab: {fileID: 0}
   timerText: {fileID: 0}
   victoryScreen: {fileID: 0}
+  plantSlider: {fileID: 0}
 --- !u!95 &6195378710366007236
 Animator:
   serializedVersion: 3

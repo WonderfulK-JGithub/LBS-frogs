@@ -6,23 +6,26 @@ public class ParallaxBackground : MonoBehaviour
 {
 
     //kod för parallax effekt på bakgrunden - KJ
-    
-    [SerializeField] float parallaxEffect = 0;
+    [SerializeField] float parallaxEffectX = 0;
+    [SerializeField] float parallaxEffectY = 0;
     [SerializeField] Transform cam = null;
-    float startPos;
+    float startPosX;
+    float startPosY;
 
-    
+
     void Start()
     {
-        startPos = transform.position.x;
+        startPosX = transform.position.x;
+        startPosY = transform.position.y;
     }
 
     
     void FixedUpdate()
     {
         //hur långt åt x leden bakgrunden ska vara - KJ
-        float distance = cam.position.x * parallaxEffect;
+        float distanceX = cam.position.x * parallaxEffectX;
+        float distanceY = cam.position.y * parallaxEffectY;
 
-        transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
+        transform.position = new Vector3(startPosX + distanceX, startPosY + distanceY, transform.position.z);
     }
 }
