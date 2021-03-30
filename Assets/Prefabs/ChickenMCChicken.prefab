@@ -166,7 +166,7 @@ MonoBehaviour:
   speed: 10
   lineOfSite: 10
   shootingRange: 4.17
-  fireRate: 1
+  fireRate: 3
   nextFireTime: 0
   bullet: {fileID: 7184792522221998102, guid: 16a275d4354a02e49b923945fc0fc2d5, type: 3}
   bulletParent: {fileID: 7701066911011637150}

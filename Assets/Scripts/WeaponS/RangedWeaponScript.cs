@@ -53,6 +53,8 @@ public class RangedWeaponScript : MonoBehaviour
 
     public IEnumerator Fire()
     {
+        player.anim.Play("GregShotgun");
+
         canAttack = false;
         player.canFlip = false;
 

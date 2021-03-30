@@ -6,6 +6,8 @@ TagManager:
   tags:
   - ground
   - Enemy
+  - StartArea
+  - BombArea
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Enemy
   - Player
   - Bullet
-  - 
+  - ThrownWeapon
   - 
   - 
   - 

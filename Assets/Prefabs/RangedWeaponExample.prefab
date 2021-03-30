@@ -70,8 +70,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b1048237d08a9d34599951cf0fc3b4b9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -141,11 +141,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletsPerShot:
-    max: 1
-    min: 1
-  spread: 0
+    max: 6
+    min: 4
+  spread: 10
   bulletSpeed: 10
   timeTilNextShot: 0.4
-  automatic: 0
+  automatic: 1
   bullet: {fileID: 1690489681676264882, guid: 1bd9e18efd989634bae4889a0ddae7b6, type: 3}
   canAttack: 1

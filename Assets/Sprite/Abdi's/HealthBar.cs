@@ -24,6 +24,4 @@ public class HealthBar : MonoBehaviour
 
         Fill.color = gradient.Evaluate(slider.normalizedValue);// När vi tar damage och vill ställa vår health till nytt
     }
-
-
 }

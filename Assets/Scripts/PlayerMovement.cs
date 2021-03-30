@@ -158,6 +158,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (rb.velocity.y <= 0)
             {
+                
                 //ökar gravitationen på objektet när den faller, så att man faller mycket snabbare och inte känner att man är på månen - KJ
                 rb.gravityScale = ogGravityScale * extraGravity;
 
@@ -171,11 +172,12 @@ public class PlayerMovement : MonoBehaviour
                 if (collider != null)
                 {
                     hasJumped = false;
-                    anim.SetBool("isGrounded", true);
+                    anim.SetBool("isGrounded", true); //Gör så att gå och idle-animationen spelas - Max
                 }
                 else
                 {
-                    anim.SetBool("isGrounded", false);
+                    hasJumped = true;
+                    anim.SetBool("isGrounded", false); //Gör så att fall-animationen spelas - Max
                 }
             }
             else
@@ -187,4 +189,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if(collision.transform.root.gameObject.layer == 12)
+        {
+            FindObjectOfType<InventoryScript>().AddWeapon(collision.transform.parent.gameObject.GetComponent<ThrownWeaponScript>().weapon);
+            Destroy(collision.transform.parent.gameObject);
+        }
+    }
+    
 }

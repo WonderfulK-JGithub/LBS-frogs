@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    AudioSource backgroundMusic;
+    [HideInInspector]public AudioSource backgroundMusic;
 
     public AudioClip playerHurt;
     public AudioClip playerJump;
+    public AudioClip superMegaEpicBombMusic;
+    public AudioClip bombSoundEffect;
 
     public AudioClip pigDie;
     public AudioClip hönaDie;

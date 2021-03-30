@@ -11,7 +11,7 @@ public class PigBehavior : MonoBehaviour
     Vector2 moveForce;
 
     Rigidbody2D rb;
-    BoxCollider2D boxCol;
+    [SerializeField]BoxCollider2D boxCol = null;
     SpriteRenderer spr;
     EnemyBehavior enemyScr;
 
@@ -23,8 +23,7 @@ public class PigBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        //skaffar referense till boxCollidern
-        boxCol = GetComponent<BoxCollider2D>();
+        
 
         //skaffar referense till spriterenderer
         spr = GetComponent<SpriteRenderer>();
@@ -44,8 +43,10 @@ public class PigBehavior : MonoBehaviour
             //ger rb velocity
             rb.velocity = moveForce;
 
+            
+
             //Använder OverlapBox för att kolla om den nuddar en vägg. Viktigt att väggen den nuddar ligger på layern "Solid"
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + new Vector3((boxCol.bounds.extents.x / 2f) * direction, 0), new Vector2(boxCol.bounds.extents.x, boxCol.bounds.extents.y * 2f - 0.02f), 0f, mask);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position + new Vector3((boxCol.bounds.extents.x / 1.6f) * direction, -0.18f), new Vector2(boxCol.bounds.extents.x, boxCol.bounds.extents.y * 2f), 0f, mask);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i] != null && colliders[i].gameObject != gameObject)
@@ -68,5 +69,11 @@ public class PigBehavior : MonoBehaviour
             this.enabled = false;
         }
 
+        
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawCube(transform.position + new Vector3((boxCol.bounds.extents.x / 1.6f)  * direction, -0.2f), new Vector2(boxCol.bounds.extents.x, boxCol.bounds.extents.y * 2f));
     }
 }

@@ -148,6 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 4
   direction: -1
+  boxCol: {fileID: 2144525819686902369}
   mask:
     serializedVersion: 2
     m_Bits: 768
