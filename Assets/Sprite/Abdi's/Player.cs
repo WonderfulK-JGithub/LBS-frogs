@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Gjorts av Abdiladif
+
     public int maxHealth = 100;
     public int currentHealth;
 
