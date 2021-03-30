@@ -23,13 +23,13 @@ public class SoundManager : MonoBehaviour
         backgroundMusic.Play();
 
         settingsData = FindObjectOfType<SettingsDataScript>();
-        backgroundMusic.volume = settingsData.volume;
+        backgroundMusic.volume = settingsData != null ? settingsData.volume : 1;
     }
 
     //Funktioner för att spela ljueffekter - Max
     public void PlaySound(AudioClip clip)
     {
-        backgroundMusic.PlayOneShot(clip, settingsData.volume);
+        backgroundMusic.PlayOneShot(clip, settingsData != null ? settingsData.volume : 1);
     }
 
     public void PlaySound(AudioClip clip, float volume)
