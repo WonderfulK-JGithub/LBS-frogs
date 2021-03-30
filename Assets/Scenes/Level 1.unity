@@ -60222,6 +60222,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6141907456556283813, guid: bcd20883cd9d39346a44278f4a2c20d1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -238.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141907456556283813, guid: bcd20883cd9d39346a44278f4a2c20d1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 162.77
+      objectReference: {fileID: 0}
     - target: {fileID: 6525657957904511191, guid: bcd20883cd9d39346a44278f4a2c20d1,
         type: 3}
       propertyPath: m_AnchorMax.x
