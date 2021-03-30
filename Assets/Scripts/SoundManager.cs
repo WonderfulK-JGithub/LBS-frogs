@@ -15,21 +15,26 @@ public class SoundManager : MonoBehaviour
     public AudioClip hönaDie;
     public AudioClip beeDie;
 
+    SettingsDataScript settingsData;
+
     private void Start()
     {
         backgroundMusic = gameObject.GetComponent<AudioSource>();
         backgroundMusic.Play();
+
+        settingsData = FindObjectOfType<SettingsDataScript>();
+        backgroundMusic.volume = settingsData != null ? settingsData.volume : 1;
     }
 
     //Funktioner för att spela ljueffekter - Max
     public void PlaySound(AudioClip clip)
     {
-        backgroundMusic.PlayOneShot(clip);
+        backgroundMusic.PlayOneShot(clip, settingsData != null ? settingsData.volume : 1);
     }
 
     public void PlaySound(AudioClip clip, float volume)
     {
-        backgroundMusic.PlayOneShot(clip, volume);
+        backgroundMusic.PlayOneShot(clip, volume * settingsData.volume);
     }
 
     //En enkel funktion för att pausa musiken om man vill - Max
