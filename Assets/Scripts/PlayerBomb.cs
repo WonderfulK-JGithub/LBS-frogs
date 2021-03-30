@@ -25,9 +25,18 @@ public class PlayerBomb : MonoBehaviour
 
     SoundManager snd;
 
+    [SerializeField] SpriteRenderer bombCountDownRenderer = null;
+    [SerializeField] Animator bombCountDownAnim = null;
+
+   
+
     private void Start()
     {
         snd = FindObjectOfType<SoundManager>();
+
+        bombCountDownAnim.speed = 0;
+
+        timerText.enabled = false;
     }
     private void Update()
     {
@@ -39,6 +48,8 @@ public class PlayerBomb : MonoBehaviour
             {
                 timer -= 1 * Time.deltaTime;
                 UppdateText();
+
+                
 
                 //om timer är 0 (vilket betyder att man kommer exploderas) - KJ
                 if (timer <= 0)
@@ -55,6 +66,10 @@ public class PlayerBomb : MonoBehaviour
 
                     //förstör bombobjektet, om man av någon anledning bestämmer sig för att vänta och kolla vad som händer med bomben - KJ
                     Destroy(bombReference);
+
+                    bombCountDownRenderer.enabled = false;
+
+                   
                 }
             }
             //annars kollar om man trycker på Plantknappen och kan planta bomben - KJ
@@ -116,6 +131,9 @@ public class PlayerBomb : MonoBehaviour
         countDown = true;
         timer = escapeTime;
 
+        bombCountDownRenderer.enabled = true;
+        bombCountDownAnim.speed = 2.6f / escapeTime;
+
         //Skapar ett bombObjekt - KJ
         bombReference = Instantiate(bombPrefab, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
 
@@ -153,6 +171,7 @@ public class PlayerBomb : MonoBehaviour
         {
             //gör att man kan planta bomben
             canPlant = true;
+            timerText.enabled = true;
         }
         //annars kollar den omd en har taggen StartArea - KJ
         else if(collision.CompareTag("StartArea") && countDown)
@@ -170,6 +189,7 @@ public class PlayerBomb : MonoBehaviour
         {
             //gör att man inte kan planta bomben - KJ
             canPlant = false;
+            if(!countDown)timerText.enabled = false;
         }
     }
 }

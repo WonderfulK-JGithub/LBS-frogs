@@ -6,9 +6,11 @@ public class BeeHavior : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float horizontalSpeed = 0;
+    [SerializeField] private float turnTime = 0;
     [SerializeField] private float verticalSpeed = 0;
     [SerializeField,Range(0.1f,2f)] private float verticalRange = 0; 
     private float verticalTime = 0;
+    private float turnTimer = 0;
     
 
     private float startHeight = 0;
@@ -54,6 +56,12 @@ public class BeeHavior : MonoBehaviour
             newPosition = new Vector2(moveX + transform.position.x, moveY + startHeight);
 
             verticalTime += verticalSpeed * Time.deltaTime;
+
+            turnTimer += 1 * Time.deltaTime;
+            if(turnTimer >= turnTime)
+            {
+                direction *= -1;
+            }
         }
 
         //om den dör

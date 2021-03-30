@@ -96,7 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f56bc4f8407cd84babbfb17b093fef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parallaxEffect: 0.5
+  parallaxEffectX: 0.7
+  parallaxEffectY: 0.95
   cam: {fileID: 0}
 --- !u!1 &8323599363814007688
 GameObject:
