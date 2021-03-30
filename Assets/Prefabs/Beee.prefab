@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalSpeed: 4.15
+  turnTime: 1
   verticalSpeed: 4
   verticalRange: 0.51
 --- !u!114 &207267222309002403

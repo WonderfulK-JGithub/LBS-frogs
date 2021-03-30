@@ -5,6 +5,7 @@ public class CameraFollow : MonoBehaviour
 {
     public Transform player;
     [SerializeField] Transform housePoint = null;
+    [SerializeField] float showcaseTime = 5f;
     //Den här offset är viktig för att spelarens z-axel är på 0, medans cameran är på -10
     public Vector3 offset;
     Vector3 shakeoffset = Vector3.zero;
@@ -65,18 +66,18 @@ public class CameraFollow : MonoBehaviour
         //Pausar spelet
         PauseMenu.GameIsPaused = true;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         //ändrar "player" till en punkt vid huset ("player" är egentligen bara camerans target) - KJ
         player = housePoint;
 
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(showcaseTime);
 
         //ändrar tillbaka "player" till playerns transform - KJ
         player = FindObjectOfType<PlayerMovement>().transform;
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(showcaseTime);
 
         //resumar spelet
         PauseMenu.GameIsPaused = false;

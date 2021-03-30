@@ -39,6 +39,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         if(!PauseMenu.GameIsPaused)
         {
+            anim.speed = 1;
+
             //kollar om Fienden är temporärt odödlig - KJ
             if (!allowHit)
             {
@@ -64,6 +66,11 @@ public class EnemyBehavior : MonoBehaviour
                 }
             }
 
+        }
+        else
+        {
+            //Ser till att djuren inte animeras när spelet är pausat
+            anim.speed = 0;
         }
 
     }
