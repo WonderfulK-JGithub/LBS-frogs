@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DeathPit : MonoBehaviour
@@ -21,7 +22,9 @@ public class DeathPit : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(collision.transform.gameObject);
+            SceneManager.LoadScene(0);
         }
+
     }
 
 }
