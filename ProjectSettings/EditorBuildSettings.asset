@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: aa7fc577c84cdfe4487b8bed49b5e92a
+  - enabled: 1
+    path: Assets/Scenes/RICK ROLL.unity
+    guid: d0a050764cce21841b3a92ce77220698
   m_configObjects: {}

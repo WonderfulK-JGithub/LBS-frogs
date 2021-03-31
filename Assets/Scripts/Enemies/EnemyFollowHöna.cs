@@ -12,7 +12,7 @@ public class EnemyFollowHöna : MonoBehaviour
     public GameObject bullet;
     public GameObject bulletParent;
     private Transform player;
-    //float yPos;
+    //float yPos; - Melker
 
     Rigidbody2D rb;
     float direction = 0;
@@ -21,12 +21,12 @@ public class EnemyFollowHöna : MonoBehaviour
     SpriteRenderer rend;
     Animator anim;
 
-    // Start is called before the first frame update
+   
     void Start()
     {
-        //Hönan letar efter en spelare med taggen "Player"
+        //Hönan letar efter en spelare med taggen "Player" - Melker J
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //yPos = transform.position.y;
+        //yPos = transform.position.y; - Melker J
 
         enemyScr = GetComponent<EnemyBehavior>();
         rb = GetComponent<Rigidbody2D>();
@@ -34,26 +34,26 @@ public class EnemyFollowHöna : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        //Om den dör
+        //Om den dör - Melker J
         if (enemyScr.isDead)
         {
             GameObject.Find("GameManager").GetComponent<SoundManager>().PlaySound(GameObject.Find("GameManager").GetComponent<SoundManager>().hönaDie); //Spelar ljud - Max
-            //disablar scriptet
+            //disablar scriptet - Melker J
             enabled = false;
         }
-        //if satsen gör att när spelaren är inom en viss area så kommer hönan att börja flytta på sig mot spelaren. 
+        //if satsen gör att när spelaren är inom en viss area så kommer hönan att börja flytta på sig mot spelaren. - Melker J
         float distanceFromPlayer = Vector2.Distance(player.position, transform.position);
         if (distanceFromPlayer < lineOfSite && distanceFromPlayer>shootingRange)
         {
-            //transform.position = Vector2.MoveTowards(this.transform.position, player.position, speed * Time.deltaTime);
+            //transform.position = Vector2.MoveTowards(this.transform.position, player.position, speed * Time.deltaTime); 
 
-            //kollar vilket håll hönan ska gå
+            //kollar vilket håll hönan ska gå - Melker J
             direction = transform.position.x > player.position.x ? -1 : 1;
 
-            //nytt sätt för hönan att röra sig, använder sig nu av en rigidbody
+            //nytt sätt för hönan att röra sig, använder sig nu av en rigidbody - Melker J
             rb.MovePosition(new Vector2(transform.position.x + speed * Time.deltaTime * direction, transform.position.y));
 
             //Ger spriten rätt håll
@@ -64,7 +64,7 @@ public class EnemyFollowHöna : MonoBehaviour
         //Else 
         else 
         {
-            //if satsen gör att om spelaren är inom "shooting range" så kommer hönan att börja skuta ägg
+            //if satsen gör att om spelaren är inom "shooting range" så kommer hönan att börja skuta ägg - Melker J
             if (distanceFromPlayer <= shootingRange && nextFireTime < Time.time)
             {
                 Instantiate(bullet, bulletParent.transform.position, Quaternion.identity);
@@ -78,7 +78,7 @@ public class EnemyFollowHöna : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        //Färgen på cirklarna är grön. Dem kommer inte visas i riktiga spelet. 
+        //Färgen på cirklarna är grön. Dem kommer inte visas i riktiga spelet. - Melker J
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, lineOfSite);
         Gizmos.DrawWireSphere(transform.position, shootingRange);
