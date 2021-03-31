@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RICK ROLL.unity
     guid: d0a050764cce21841b3a92ce77220698
+  - enabled: 1
+    path: Assets/Scenes/BonusMode.unity
+    guid: 99a348a941d2a5c4dbca3e1374c4d268
   m_configObjects: {}

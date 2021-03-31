@@ -305,7 +305,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "A sneak peak into the \nnext evelution of \nGaming"
+  m_Text: "A sneak peak into the \nnext evolution of \nGaming"
 --- !u!222 &572355838
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
     //för så att spelaren inte kan byta håll - Max
     public bool canFlip = true;
 
+    ParticleSystem particles; //Partikelsystem när spelaren går - Max
+
     void Awake()
     {
         //Hämtar referensen - Max
@@ -60,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
 
         boxCol = GetComponent<BoxCollider2D>();
         maskIndex = LayerMask.GetMask("Solid");
+
+        particles = GetComponent<ParticleSystem>();
+        particles.enableEmission = false;
     }
 
     
@@ -107,8 +112,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetTrigger("jump"); //Spelar animation - Max
                 anim.SetBool("isGrounded", false);
+                particles.enableEmission = false;
 
-               
 
                 FindObjectOfType<SoundManager>().PlaySound(FindObjectOfType<SoundManager>().playerJump); //Spelar ljud - Max
 
@@ -150,10 +155,15 @@ public class PlayerMovement : MonoBehaviour
             if (rb.velocity.x > -0.2f && rb.velocity.x < 0.2f)
             {
                 anim.SetBool("isWalking", false);
+                particles.enableEmission = false; //Stänger av partiklarna - Max
             }
             else
             {
                 anim.SetBool("isWalking", true);
+                if(anim.GetBool("isGrounded") == true)
+                {
+                    particles.enableEmission = true;
+                }
             }
 
             if (rb.velocity.y <= 0)
@@ -178,6 +188,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     hasJumped = true;
                     anim.SetBool("isGrounded", false); //Gör så att fall-animationen spelas - Max
+                    particles.enableEmission = false; //Stänger av particles när man trillar neråt - Max
                 }
             }
             else
