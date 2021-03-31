@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Gjort av Melker J
+    
     //Är spelet pausat?
     // Ja, det är det
     public static bool GameIsPaused = false;
@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //När man trycker på esc i spelet, får man pause meny. När man trycker på esc i pause meny, går man tillbaka till spelet.
+        //När man trycker på esc i spelet, får man pause meny. När man trycker på esc i pause meny, går man tillbaka till spelet. - Melker J
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
@@ -37,7 +37,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
-        //Spelet startas vid samma hastighet som förut
+        //Spelet startas vid samma hastighet som förut - Melker J
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
@@ -45,7 +45,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
-        //Fryser spelet så att det inte pågor samtidigt som du spelar
+        //Fryser spelet så att det inte pågor samtidigt som du spelar - Melker J
         Time.timeScale = 0f;
         GameIsPaused = true;
     }
@@ -54,13 +54,13 @@ public class PauseMenu : MonoBehaviour
     {
         print("fefa");
         SceneManager.LoadScene(0);
-        //Spelet startar i samma hastighet som förut
+        //Spelet startar i samma hastighet som förut - Melker J
         Time.timeScale = 1f;
     }
 
     public void QuitGame()
     {
-        //Stänger programmet
+        //Stänger programmet - Melker J
         Debug.Log("Quitting game...");
         Application.Quit();
     }
