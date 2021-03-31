@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour
     public Transform player;
     [SerializeField] Transform housePoint = null;
     [SerializeField] float showcaseTime = 5f;
+    [SerializeField] float showcaseSpeed = 2f;
     //Den här offset är viktig för att spelarens z-axel är på 0, medans cameran är på -10
     public Vector3 offset;
     Vector3 shakeoffset = Vector3.zero;
@@ -61,7 +62,7 @@ public class CameraFollow : MonoBehaviour
         float ogSmoth = smoothFactor;
 
         //ändrar smothfactor till 1 så att kameran åker långsammare - KJ
-        smoothFactor = 1f;
+        smoothFactor = showcaseSpeed;
 
         //Pausar spelet
         PauseMenu.GameIsPaused = true;
