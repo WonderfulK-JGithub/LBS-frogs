@@ -85,15 +85,15 @@ public class PlayerHealthPointsScript : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        //kollar om man är temporärt odödlig
+        //kollar om man är temporärt odödlig - KJ
         if(allowHit)
         {
             GameObject.Find("GameManager").GetComponent<SoundManager>().PlaySound(GameObject.Find("GameManager").GetComponent<SoundManager>().playerHurt); //Spelar ljud - Max
-            //Tar bort hp från spelaren
+            //Tar bort hp från spelaren - KJ
             playerHealth -= damage;
             
 
-            //kollar om man har 0 eller mindre hp
+            //kollar om man har 0 eller mindre hp - KJ
             if (playerHealth <= 0)
             {
                 healthBar.SetHealth(0); //Uppdaterar healthbaren - Max
@@ -114,10 +114,10 @@ public class PlayerHealthPointsScript : MonoBehaviour
 
     public void GameOver()
     {
-        
+        //Sätter på game over screenen - KJ
         GameOverScreen.SetActive(true);
 
-        //stänger av spelaren
+        //stänger av spelaren - KJ
         GetComponent<PlayerMovement>().enabled = false;
         rend.enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;

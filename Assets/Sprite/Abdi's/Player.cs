@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Gjorts av Abdiladif
+    // Gjorts av Abdiladif 
+    // Ingen annan har lagt till ändringar  
+
 
     public int maxHealth = 100;
     public int currentHealth;
@@ -23,10 +25,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);// varje gång vi klicker på space tar vi damage 20 
-        }
+        
 
     }
 
