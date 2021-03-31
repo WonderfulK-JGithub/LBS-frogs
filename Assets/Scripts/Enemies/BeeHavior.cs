@@ -41,9 +41,11 @@ public class BeeHavior : MonoBehaviour
     
     void Update()
     {
-        
-        if(!PauseMenu.GameIsPaused)
+
+        if (!PauseMenu.GameIsPaused)
         {
+            
+
             //räknar ut hur mycket den ska flyttas i x - KJ
             float moveX = horizontalSpeed * Time.deltaTime * direction;
 
@@ -57,19 +59,25 @@ public class BeeHavior : MonoBehaviour
 
             verticalTime += verticalSpeed * Time.deltaTime;
 
+            //lägger till tid på turn timern
             turnTimer += 1 * Time.deltaTime;
-            if(turnTimer >= turnTime)
+
+            //kollar om det är dags att svänga - KJ
+            if (turnTimer >= turnTime)
             {
                 direction *= -1;
             }
         }
+        
 
         //om den dör
         if (enemyScr.isDead)
         {
             
-            //Gör att rb är stilla och disablar detta script
+            
             FindObjectOfType<SoundManager>().PlaySound(FindObjectOfType<SoundManager>().beeDie); //Spelar ljud - Max
+
+            //Gör att rb är stilla och disablar detta script - KJ
             rb.bodyType = RigidbodyType2D.Static;
             this.enabled = false;
         }

@@ -62,7 +62,7 @@ public class PlayerBomb : MonoBehaviour
 
                     //Stoppar musiken och spelar en bomb ljudeffekt - KJ
                     snd.backgroundMusic.Stop();
-                    snd.PlaySound(snd.bombSoundEffect,2);
+                    snd.PlaySound(snd.bombSoundEffect);
 
                     //förstör bombobjektet, om man av någon anledning bestämmer sig för att vänta och kolla vad som händer med bomben - KJ
                     Destroy(bombReference);
