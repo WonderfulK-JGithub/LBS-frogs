@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
         slider.maxValue = health;
         slider.value = health;
 
-        Fill.color = gradient.Evaluate(1f);// vi kan få en färg från vår gradient vid en specifik punkt
+        Fill.color = gradient.Evaluate(1f);// vi får en färg från vår gradient vid en specifik punkt
     }
 
     public void SetHealth(int health)
