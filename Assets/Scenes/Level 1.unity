@@ -961,12 +961,12 @@ PrefabInstance:
     - target: {fileID: 3175381601202250891, guid: 5873c07480a03c947b693ef368c860cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 4.91
       objectReference: {fileID: 0}
     - target: {fileID: 3175381601202250891, guid: 5873c07480a03c947b693ef368c860cf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.42
+      value: 4.44
       objectReference: {fileID: 0}
     - target: {fileID: 3175381601202250891, guid: 5873c07480a03c947b693ef368c860cf,
         type: 3}
@@ -62885,6 +62885,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8854513149946868629, guid: bcd20883cd9d39346a44278f4a2c20d1,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854513149946868629, guid: bcd20883cd9d39346a44278f4a2c20d1,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854513149946868629, guid: bcd20883cd9d39346a44278f4a2c20d1,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854513149946868630, guid: bcd20883cd9d39346a44278f4a2c20d1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -53
+      objectReference: {fileID: 0}
+    - target: {fileID: 8854513149946868630, guid: bcd20883cd9d39346a44278f4a2c20d1,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8854513150093012783, guid: bcd20883cd9d39346a44278f4a2c20d1,
         type: 3}
       propertyPath: m_AnchorMin.x
@@ -64882,6 +64907,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2750358957171087417, guid: 38ba121c11cf73d4f87058ba24134906,
+        type: 3}
+      propertyPath: inventorySlotsAmount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2750358957171087418, guid: 38ba121c11cf73d4f87058ba24134906,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66112,12 +66142,12 @@ PrefabInstance:
     - target: {fileID: 7125450710539633612, guid: 3038e8f8536f51e46bee9e75c1f5bdaa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.3643036
+      value: 113.04
       objectReference: {fileID: 0}
     - target: {fileID: 7125450710539633612, guid: 3038e8f8536f51e46bee9e75c1f5bdaa,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3619485
+      value: -1.24
       objectReference: {fileID: 0}
     - target: {fileID: 7125450710539633612, guid: 3038e8f8536f51e46bee9e75c1f5bdaa,
         type: 3}
