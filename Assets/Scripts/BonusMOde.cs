@@ -47,7 +47,7 @@ public class BonusMOde : MonoBehaviour
 
         count++;
 
-        if(count == 10)
+        if(count == 100)
         {
             game.SetActive(false);
             StartCoroutine(YouWonOmgGoodJobWellPlayedWeShilling());
