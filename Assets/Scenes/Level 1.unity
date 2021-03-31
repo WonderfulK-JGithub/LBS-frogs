@@ -1013,10 +1013,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3175381601202250933, guid: 5873c07480a03c947b693ef368c860cf,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3175381601202250935, guid: 5873c07480a03c947b693ef368c860cf,
         type: 3}
       propertyPath: m_Name
       value: "Stubin_nedr\xE4kning_f\xF6r_bomb__0"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3175381601202250935, guid: 5873c07480a03c947b693ef368c860cf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5873c07480a03c947b693ef368c860cf, type: 3}
@@ -2777,6 +2787,7 @@ MonoBehaviour:
   player: {fileID: 716299803}
   housePoint: {fileID: 191790548}
   showcaseTime: 5
+  showcaseSpeed: 2
   offset: {x: 0, y: 0, z: -10}
   smoothFactor: 1.26
   minY: 0
