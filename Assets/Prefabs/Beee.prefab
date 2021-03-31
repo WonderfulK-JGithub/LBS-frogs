@@ -121,7 +121,7 @@ MonoBehaviour:
   isDead: 0
   invisFrames: 20
   flickerRate: 2
-  deathAnimationTime: 0
+  deathAnimationTime: 1
   allowHit: 1
 --- !u!50 &207267222309002405
 Rigidbody2D:

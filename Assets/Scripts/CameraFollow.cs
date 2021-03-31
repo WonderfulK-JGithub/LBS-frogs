@@ -6,7 +6,8 @@ public class CameraFollow : MonoBehaviour
     public Transform player;
     [SerializeField] Transform housePoint = null;
     [SerializeField] float showcaseTime = 5f;
-    //Den här offset är viktig för att spelarens z-axel är på 0, medans cameran är på -10 - Melker J
+    [SerializeField] float showcaseSpeed = 2f;
+    //Den här offset är viktig för att spelarens z-axel är på 0, medans cameran är på -10
     public Vector3 offset;
     Vector3 shakeoffset = Vector3.zero;
     [Range(1, 10)]
@@ -28,13 +29,13 @@ public class CameraFollow : MonoBehaviour
 
     void Follow ()
     {
-        //Vi tar positionen av spelaren + offset. - Melker J
+        //Vi tar positionen av spelaren + offset.
         Vector3 targetPosition = player.position + offset;
-        //Den här gör att kameran väntar en liten stund innan den flyttar sig till spelaren. - Melker J
+        //Den här gör att kameran väntar en liten stund innan den flyttar sig till spelaren. 
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition, smoothFactor* Time.fixedDeltaTime);
         transform.position = targetPosition;
 
-        //Ser till att kameran inte går under y positionen som sätts i variabeln minY - Melker J
+        //Ser till att kameran inte går under y positionen som sätts i variabeln minY
         float yCord = Mathf.Clamp(transform.position.y, minY, 1000);
 
         transform.position = new Vector3(smoothedPosition.x, yCord, smoothedPosition.z) + shakeoffset;
@@ -61,9 +62,9 @@ public class CameraFollow : MonoBehaviour
         float ogSmoth = smoothFactor;
 
         //ändrar smothfactor till 1 så att kameran åker långsammare - KJ
-        smoothFactor = 1f;
+        smoothFactor = showcaseSpeed;
 
-        //Pausar spelet - Melker J
+        //Pausar spelet
         PauseMenu.GameIsPaused = true;
 
         yield return new WaitForSeconds(1f);
