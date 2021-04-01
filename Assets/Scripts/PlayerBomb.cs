@@ -28,7 +28,12 @@ public class PlayerBomb : MonoBehaviour
     [SerializeField] SpriteRenderer bombCountDownRenderer = null;
     [SerializeField] Animator bombCountDownAnim = null;
 
-   
+    [SerializeField] SpriteRenderer wingameRend = null;
+    [SerializeField] Animator wingameAnim = null;
+    [SerializeField] GameObject gameCanvas = null;
+    [SerializeField] GameObject pauseMenu = null;
+
+
 
     private void Start()
     {
@@ -37,6 +42,8 @@ public class PlayerBomb : MonoBehaviour
         bombCountDownAnim.speed = 0;
 
         timerText.enabled = false;
+
+        wingameAnim.speed = 0;
     }
     private void Update()
     {
@@ -155,14 +162,29 @@ public class PlayerBomb : MonoBehaviour
 
     void GameWon()
     {
-        //yippie
-        victoryScreen.SetActive(true);
+        wingameAnim.speed = 1;
+        wingameRend.enabled = true;
+
+        //Disablar UI
+        gameCanvas.SetActive(false);
+        pauseMenu.SetActive(false);
+
+        //stänger av musiken
+        snd.backgroundMusic.Stop();
+
+        Invoke("WinScreen", 4);
 
         //stänger av spelaren - KJ
         GetComponent<PlayerMovement>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
 
         PauseMenu.GameIsPaused = true;
+    }
+
+    void WinScreen()
+    {
+        //yippie
+        victoryScreen.SetActive(true);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

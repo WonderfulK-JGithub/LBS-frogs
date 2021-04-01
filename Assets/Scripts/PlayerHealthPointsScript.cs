@@ -24,6 +24,11 @@ public class PlayerHealthPointsScript : MonoBehaviour
     SpriteRenderer rend;
     HealthBar healthBar;
 
+    [SerializeField] SpriteRenderer gameoverRend = null;
+    [SerializeField] Animator gameoverAnim = null;
+    [SerializeField] GameObject gameCanvas = null;
+    [SerializeField] GameObject pauseMenu = null;
+
     void Start()
     {
         playerHealth = playerMaxHealth;
@@ -33,6 +38,8 @@ public class PlayerHealthPointsScript : MonoBehaviour
         healthBar.SetMaxHealth(playerMaxHealth);
 
         rend = GetComponent<SpriteRenderer>();
+
+        gameoverAnim.speed = 0;
     }
 
     void Update()
@@ -114,8 +121,18 @@ public class PlayerHealthPointsScript : MonoBehaviour
 
     public void GameOver()
     {
-        //Sätter på game over screenen - KJ
-        GameOverScreen.SetActive(true);
+
+        gameoverAnim.speed = 1;
+        gameoverRend.enabled = true;
+
+        //Disablar UI
+        gameCanvas.SetActive(false);
+        pauseMenu.SetActive(false);
+
+        //stänger av musiken
+        FindObjectOfType<SoundManager>().backgroundMusic.Stop();
+
+        Invoke("ScreenGameOver", 4f);
 
         //stänger av spelaren - KJ
         GetComponent<PlayerMovement>().enabled = false;
@@ -126,4 +143,12 @@ public class PlayerHealthPointsScript : MonoBehaviour
         PauseMenu.GameIsPaused = true;
 
     }
+
+    void ScreenGameOver()
+    {
+        //Sätter på game over screenen - KJ
+        GameOverScreen.SetActive(true);
+    }
+
+    
 }
