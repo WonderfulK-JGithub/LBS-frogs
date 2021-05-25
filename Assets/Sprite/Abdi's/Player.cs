@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Gjorts av Abdiladif 
-    // Ingen annan har lagt till ändringar  
+    
 
 
     public int maxHealth = 100;
