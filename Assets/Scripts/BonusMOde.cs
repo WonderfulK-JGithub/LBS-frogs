@@ -27,11 +27,11 @@ public class BonusMOde : MonoBehaviour
 
     [SerializeField] GameObject game = null;
 
-    [SerializeField] Text text1;
-    [SerializeField] Text text2;
+    [SerializeField] Text text1 = null;
+    [SerializeField] Text text2 = null;
     
 
-    [SerializeField] Text text3;
+    [SerializeField] Text text3 = null;
 
     
 
